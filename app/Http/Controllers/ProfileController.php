@@ -8,26 +8,14 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    /**
-     * Show the profile of the authenticated user.
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function index()
     {
         
-        $userId = Auth::id();
-        $user = User::find($userId);
-
-        
-        return view('profile', ['user' => $user]);
+        return view('profile');
     }
- 
-    /**
-     * Show the form for editing the user's profile.
-     *
-     * @return \Illuminate\View\View
-     */
+
+    
     public function edit()
     {
         // Get the currently authenticated user
@@ -93,4 +81,4 @@ class ProfileController extends Controller
 
         return back()->with('success', 'Profile image uploaded successfully.');
     }
-}
+} 

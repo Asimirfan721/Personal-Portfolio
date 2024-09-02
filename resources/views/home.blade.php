@@ -76,6 +76,7 @@
             <a href="{{ route('personal-statement') }}" class="btn btn-warning">Personal Statement</a>
             <a href="{{ route('statement-of-purpose') }}" class="btn btn-warning">Statement of Purpose</a>
             <a href="{{ route('Calculation') }}" class="btn btn-warning">Calculation</a>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

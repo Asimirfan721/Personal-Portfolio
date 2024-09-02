@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -10,8 +11,6 @@ use App\Http\Controllers\CourseraController;
 use App\Http\Controllers\PersonalStatementController;
 use App\Http\Controllers\StatementofPurposeController;
 use App\Http\Controllers\ProfileController;
-
-
 
 Route::get('/', function () {
     return view('home');
@@ -49,3 +48,9 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-prof
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('update-profile');
 Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upload-file');
 
+Route::get('/coursera/{category}', [CourseraController::class, 'index'])->name('coursera.category');
+Route::post('/coursera/upload-footer', [CourseraController::class, 'uploadFooter'])->name('coursera.upload-footer');
+Route::get('/course/{category}', [CourseraController::class, 'showUploadForm'])->name('course.upload');
+Route::post('/course/{category}', [CourseraController::class, 'uploadFile'])->name('course.uploadFile');
+// Ensure this route is defined in your routes/web.php
+Route::post('/coursera/{category}/upload', [CourseraController::class, 'upload'])->name('coursera.uploadFile');
