@@ -52,7 +52,7 @@ class ProfileController extends Controller
             'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
             // Add more validation rules if necessary
         ]);
-
+ 
         // Get the currently authenticated user
         $userId = Auth::id();
         $user = User::find($userId);
@@ -70,16 +70,27 @@ class ProfileController extends Controller
         // Redirect back to the profile page with a success message
         return redirect()->route('profile')->with('success', 'Profile updated successfully!');
     }
+    public function showProfile()
+    {
+        $user = Auth::user();
+        return view('profile', ['user' => $user]);
+    }
+    
     public function uploadFile(Request $request)
-{
-    $request->validate([
-        'file' => 'required|mimes:jpg,jpeg,png,pdf|max:2048', // Adjust validation 
-    ]);
+    {
+        $request->validate([
+            'file' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ]);
 
-    $fileName = time().'.'.$request->file->extension();
-    $request->file->move(public_path('uploads'), $fileName);
+        $userId = Auth::user()->id;
 
-    return back()->with('success', 'File uploaded successfully.');
+        // Generate a unique file name and move the uploaded file
+        $fileName = time() . '.' . $request->file->extension();
+        $request->file->move(public_path('uploads'), $fileName);
+        $user = User::find($userId); // Ensure this is correct
+        $user->profile_image = $fileName;
+        $user->save();
+
+        return back()->with('success', 'Profile image uploaded successfully.');
+    }
 }
-}
- 

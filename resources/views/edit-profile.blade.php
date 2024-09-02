@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Edit Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -27,15 +27,7 @@
             margin-bottom: 30px;
             color: #343a40;
             font-weight: bold;
-        }
-        .profile-info {
-            margin-bottom: 20px;
-        }
-        .profile-info label {
-            font-weight: bold;
-        }
-        .profile-info p {
-            margin: 0;
+            text-align: center;
         }
         .profile-image {
             text-align: center;
@@ -45,6 +37,12 @@
             max-width: 150px;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
         }
         .btn-group {
             margin-top: 20px;
@@ -59,10 +57,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>User Profile</h1>
+        <h1>Edit Profile</h1>
 
         <div class="profile-image">
-            <!-- Display the user's profile image if it exists -->
+            <!-- Display the current profile image -->
             @if($user->profile_image)
                 <img src="{{ asset('uploads/' . $user->profile_image) }}" alt="Profile Image">
             @else
@@ -70,29 +68,31 @@
             @endif
         </div>
 
-        <div class="profile-info">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <p id="name">{{ $user->name }}</p>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <p id="email">{{ $user->email }}</p>
-            </div>
-        </div>
-
-        <!-- File Upload Form -->
-        <form method="POST" action="{{ route('upload-file') }}" enctype="multipart/form-data">
+        <!-- Form to edit profile information -->
+        <form method="POST" action="{{ route('update-profile') }}" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3">
-                <label for="file" class="form-label">Upload Profile Image</label>
-                <input type="file" name="file" id="file" class="form-control" accept="image/*">
+            @method('PUT') <!-- Using PUT for updating resources -->
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
             </div>
-            <button type="submit" class="btn btn-success">Upload</button>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="profile_image">Upload New Profile Image</label>
+                <input type="file" name="profile_image" id="profile_image" class="form-control" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Changes</button>
         </form>
 
         <div class="btn-group mt-4">
-            <a href="{{ route('edit-profile') }}" class="btn btn-primary">Edit Profile</a>
+            <a href="{{ route('profile') }}" class="btn btn-secondary">Back to Profile</a>
             <a href="{{ route('home') }}" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
