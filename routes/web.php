@@ -50,7 +50,21 @@ Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upl
 
 Route::get('/coursera/{category}', [CourseraController::class, 'index'])->name('coursera.category');
 Route::post('/coursera/upload-footer', [CourseraController::class, 'uploadFooter'])->name('coursera.upload-footer');
-Route::get('/course/{category}', [CourseraController::class, 'showUploadForm'])->name('course.upload');
-Route::post('/course/{category}', [CourseraController::class, 'uploadFile'])->name('course.uploadFile');
-// Ensure this route is defined in your routes/web.php
-Route::post('/coursera/{category}/upload', [CourseraController::class, 'upload'])->name('coursera.uploadFile');
+Route::get('/coursera', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
+Route::get('/coursera/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
+
+
+Route::get('/coursera', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
+
+Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
+
+Route::get('/coursera/category/{category}/upload', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
+Route::get('/uploadPDF', [CourseraController::class, 'uploadBlade'])->name('uploadPDF');
+
+Route::post('/coursera/category/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+Route::get('/buttons', [CourseraController::class, 'showButtons'])->name('coursera.buttons');
+Route::get('/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
+Route::get('/upload/{category}', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
+Route::post('/upload/{category}', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+Route::get('/coursera/{category}/upload', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
+Route::post('/coursera/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');

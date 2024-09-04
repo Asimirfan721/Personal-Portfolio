@@ -72,7 +72,7 @@
             <a href="{{ route('linkedin') }}" class="btn btn-secondary">LinkedIn</a>
             <a href="{{ route('github') }}" class="btn btn-dark">GitHub</a>
             <a href="{{ route('researchgate') }}" class="btn btn-info">ResearchGate</a>
-            <a href="{{ route('coursera') }}" class="btn btn-success">Coursera</a>
+            <a href="{{ route('coursera.showButtons') }}" class="btn btn-primary">Coursera</a>
             <a href="{{ route('personal-statement') }}" class="btn btn-warning">Personal Statement</a>
             <a href="{{ route('statement-of-purpose') }}" class="btn btn-warning">Statement of Purpose</a>
             <a href="{{ route('Calculation') }}" class="btn btn-warning">Calculation</a>

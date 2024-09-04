@@ -59,10 +59,12 @@
 </head>
 <body>
     <div class="container">
+        
         <h1>User Profile</h1>
 
         <div class="profile-image">
             <!-- Display the user's profile image if it exists -->
+            
             @if($user->profile_image)
                 <img src="{{ asset('uploads/' . $user->profile_image) }}" alt="Profile Image">
             @else
