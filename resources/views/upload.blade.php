@@ -8,11 +8,12 @@
 </head>
 <body>
     <div class="container mt-5">
-        <a href="{{ ('/') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
         <h1>Upload {{ ucfirst($category) }} File</h1>
+        
 
         <!-- Upload Form -->
-        <form method="POST" action="{{ route('coursera.uploadFile', ['category' => $category]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('coursera.upload', ['category' => $category]) }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="file" class="form-label">Upload Image or PDF</label>
@@ -23,10 +24,7 @@
                 <textarea name="description" id="description" class="form-control" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Upload</button>
-     
-
-      
-            <div>
+                 <div>
                 <label for="category">Select Category:</label>
                 <select name="category" required>
                     <option value="ai">AI</option>
@@ -35,9 +33,7 @@
                 </select>
             </div>
         </form>
-       
-        
-        
+              
         @if (session('success'))
             <div class="alert alert-success mt-3">{{ session('success') }}</div>
         @endif

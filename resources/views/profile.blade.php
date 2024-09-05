@@ -65,6 +65,7 @@
         <div class="profile-image">
             <!-- Display the user's profile image if it exists -->
             
+            
             @if($user->profile_image)
                 <img src="{{ asset('uploads/' . $user->profile_image) }}" alt="Profile Image">
             @else

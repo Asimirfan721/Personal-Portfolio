@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1>Statement of Purpose</h1>
-        <a href="{{ ('/') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif

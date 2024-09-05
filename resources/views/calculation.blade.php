@@ -8,7 +8,7 @@
 </head>
 <body> 
     <div class="container mt-5">
-        <a href="{{ ('/') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
         <h1>Calculator</h1>
         <form method="POST" action="{{ route('calculation') }}">
             @csrf

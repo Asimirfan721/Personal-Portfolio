@@ -11,7 +11,7 @@
         <!-- Home Button -->
         <div class="d-flex justify-content-between align-items-center">
             <h1>Personal Statement</h1>
-            <a href="{{ ('/') }}" class="btn btn-secondary">Home</a>
+            <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
             
         </div>
         

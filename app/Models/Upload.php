@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Upload extends Model
 {
     use HasFactory;
+    
 
-    protected $fillable = ['category', 'file_path', 'description'];
+    protected $fillable = ['image_path', 'description', 'category'];
 }

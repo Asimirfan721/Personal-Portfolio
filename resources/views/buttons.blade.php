@@ -8,12 +8,16 @@
 </head>
 <body>
     <div class="container mt-5">
+        <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
         <h1>Select a Category</h1>
         <div class="mt-4">
-            <a href="{{ route('uploadPDF') }}" class="btn btn-primary">Artificial Intelligence</a>
+            {{-- <a href="{{ route('uploadPDF') }}" class="btn btn-primary">Artificial Intelligence</a>
             <a href="{{ route('uploadPDF') }}" class="btn btn-primary">CS</a>
             <a href="{{ route('uploadPDF') }}" class="btn btn-primary">Certifications</a>
-            
+            <a href="{{ route('coursera.uploadForm', ['category' => 'ai']) }}" class="btn btn-primary">Artificial Intelligence</a> --}}
+            <a href="{{ route('form')  }} " class="btn btn-primary"> AI</a>  
+            <a href="{{ route('CS')  }} " class="btn btn-primary"> CS</a>  
+            <a href="{{ route('General')  }} " class="btn btn-primary"> General</a>  
         </div>
     </div>
 </body>

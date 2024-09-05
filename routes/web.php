@@ -13,7 +13,7 @@ use App\Http\Controllers\StatementofPurposeController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 })->name('home');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
@@ -46,25 +46,30 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-prof
 
 // Update the user's profile
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('update-profile');
-Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upload-file');
+//Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upload-file');
 
 Route::get('/coursera/{category}', [CourseraController::class, 'index'])->name('coursera.category');
 Route::post('/coursera/upload-footer', [CourseraController::class, 'uploadFooter'])->name('coursera.upload-footer');
-Route::get('/coursera', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
+//Route::get('/coursera', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
 Route::get('/coursera/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
 
-
-Route::get('/coursera', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
 
 Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
 
 Route::get('/coursera/category/{category}/upload', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
 Route::get('/uploadPDF', [CourseraController::class, 'uploadBlade'])->name('uploadPDF');
 
-Route::post('/coursera/category/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
-Route::get('/buttons', [CourseraController::class, 'showButtons'])->name('coursera.buttons');
+//Route::post('/coursera/category/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+Route::get('/buttons', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
 Route::get('/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
 Route::get('/upload/{category}', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
-Route::post('/upload/{category}', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+//Route::post('/upload/{category}', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
 Route::get('/coursera/{category}/upload', [CourseraController::class, 'showUploadForm'])->name('coursera.uploadForm');
-Route::post('/coursera/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+//Route::post('/coursera/{category}/upload', [CourseraController::class, 'uploadFile'])->name('coursera.uploadFile');
+
+Route::post('/upload', [CourseraController::class, 'upload'])->name('upload');
+// Route::get('/upload',[CourseraController::class, 'upload'])->name('upload');
+
+Route::get('/form', [CourseraController::class, 'uploadForm'])->name('form');
+Route::get('/Cyber', [CourseraController::class, 'CS'])->name('CS');
+Route::get('/General', [CourseraController::class, 'General'])->name('General');
