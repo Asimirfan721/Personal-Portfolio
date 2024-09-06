@@ -68,8 +68,8 @@
             @endif
         </div>
 
-        <!-- Form to edit profile information -->
-        <form method="POST" action="{{ route('update-profile') }}" enctype="multipart/form-data">
+        
+        <form method="POST" action="{{ route('profile/update') }}" enctype="multipart/form-data" class="edit">
             @csrf
             @method('PUT') <!-- Using PUT for updating resources -->
             

@@ -38,15 +38,20 @@ Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index
 Route::post('/statement-of-purpose', [StatementOfPurposeController::class, 'update']);
 
 // Show the user's profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+// Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 
-// Show the form for editing the user's profile
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-profile');
+// // Show the form for editing the user's profile
+// Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-profile');
 
-// Update the user's profile
-Route::post('/profile/update', [ProfileController::class, 'update'])->name('update-profile');
-//Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upload-file');
+// // Update the user's profile
+// Route::post('/profile/update', [ProfileController::class, 'update'])->name('update-profile');
+// //Route::post('/upload-file', [ProfileController::class, 'uploadFile'])->name('upload-file');
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/upload', [ProfileController::class, 'uploadFile'])->name('profile.upload');
+
 
 Route::get('/coursera/{category}', [CourseraController::class, 'index'])->name('coursera.category');
 Route::post('/coursera/upload-footer', [CourseraController::class, 'uploadFooter'])->name('coursera.upload-footer');

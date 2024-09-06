@@ -95,7 +95,9 @@ public function upload(Request $request)
         $upload->image_path =  '/storage/' . $filePath; // Save file path
         $upload->category = $request->input('category'); // Save the category
         $upload->save();
-        // Return a success message
+       
+        $upload = Upload::where('category', $request->input('category'))->get();
+
         return back()->with('success', 'File uploaded successfully!');
     }
 
@@ -103,14 +105,21 @@ public function upload(Request $request)
     return back()->with('error', 'File upload failed.');
 }
 public function uploadform(){
-    return view('AI');
+    $uploads = Upload::where('category', 'AI')->get(); 
+    
+    // Pass the uploads to the view
+    return view('AI', compact('uploads'));
 }
 
 public function CS(){
-    return view('CS');
+    $uploads = Upload::where('category', 'CS')->get(); 
+
+    return view('CS', compact('uploads'));
 }
 public function General(){
-    return view('General');
+    $uploads = Upload::where('category', 'General')->get(); 
+
+    return view('General', compact('uploads'));
 }
 
 }

@@ -18,11 +18,8 @@ class ProfileController extends Controller
     
     public function edit()
     {
-        // Get the currently authenticated user
         $userId = Auth::id();
         $user = User::find($userId);
-
-        // Pass the user object to the edit view
         return view('edit-profile', ['user' => $user]);
     }
 
@@ -60,7 +57,10 @@ class ProfileController extends Controller
     }
     public function showProfile()
     {
-        $user = Auth::user();
+        $user = Auth::user(); // Retrieve the authenticated user
+        if (!$user) {
+            return redirect()->route('login')->withErrors('You need to be logged in to access this page.');
+        }
         return view('profile', ['user' => $user]);
     }
     
