@@ -3,82 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #e9ecef;
-            height: 100vh;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
+            padding: 0;
         }
-        .container {
-            background-color: #fff;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            width: 80%;
-            max-width: 1200px;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #111; /* Slightly lighter black */
+            border-bottom: 3px solid red; /* Red border below the navbar */
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
         }
-        h1 {
-            margin-bottom: 30px;
-            color: #343a40;
+
+        .navbar .navbar-brand {
+            color: #fff;
             font-weight: bold;
-            font-size: 36px;
+            font-size: 24px;
+        }
+
+        .navbar .nav-link {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: red;
+        }
+
+        .navbar .btn-danger {
+            padding: 6px 12px;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        /* Main Content */
+        .container {
+            padding: 100px 20px 20px; /* Space to account for the fixed navbar */
             text-align: center;
         }
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
-        .btn-group .btn {
-            margin: 10px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            width: 200px;
+
+        .about-section {
+            background-color: #111; /* Slightly lighter black for contrast */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            margin: 20px auto;
+            max-width: 800px;
         }
-        .logout-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid red; /* Red underline */
+            display: inline-block;
+            padding-bottom: 5px;
         }
-        
+
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ccc; /* Light gray for better readability */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="logout-button">
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
-            <a href="{{ route('profile') }}" class="btn btn-warning">Profile</a>
-        </form>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Asim Irfan</a>
+        <div class="d-flex">
+            <a class="nav-link" href="{{ route('home') }}">Home</a>
+            <a class="nav-link" href="{{ route('linkedin') }}">LinkedIn</a>
+            <a class="nav-link" href="{{ route('github') }}">GitHub</a>
+            <a class="nav-link" href="{{ route('researchgate') }}">ResearchGate</a>
+            <a class="nav-link" href="{{ route('coursera.showButtons') }}">Coursera</a>
+            <a class="nav-link" href="{{ route('personal-statement') }}">Personal Statement</a>
+            <a class="nav-link" href="{{ route('statement-of-purpose') }}">Statement of Purpose</a>
+            <a class="nav-link" href="{{ route('Calculation') }}">Calculation</a>
+            <form method="POST" action="{{ route('logout') }}" class="ms-3">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
-        <h1>Welcome Asim</h1>
-        <div class="btn-group">
-            <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
-            <a href="{{ route('linkedin') }}" class="btn btn-secondary">LinkedIn</a>
-            <a href="{{ route('github') }}" class="btn btn-dark">GitHub</a>
-            <a href="{{ route('researchgate') }}" class="btn btn-info">ResearchGate</a>
-            <a href="{{ route('coursera.showButtons') }}" class="btn btn-primary">Coursera</a>
-            <a href="{{ route('personal-statement') }}" class="btn btn-warning">Personal Statement</a>
-            <a href="{{ route('statement-of-purpose') }}" class="btn btn-warning">Statement of Purpose</a>
-            <a href="{{ route('Calculation') }}" class="btn btn-warning">Calculation</a>
-            
+        <h1>Asim Irfan</h1>
+
+        <!-- About Me Section -->
+        <div class="about-section">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies. 
+                I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
+                I have experience in research and leadership, having published research papers and led multiple teams to success.
+            </p>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

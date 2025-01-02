@@ -1,120 +1,139 @@
 <!-- Blade File (CS.blade.php) -->
 
-<!-- Styles for Professional Design -->
+<!-- Styles for Redesigned Professional Design -->
 <style>
     body {
         font-family: Arial, sans-serif;
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
     }
+
     .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        border: 1px solid #ccc;
         border-radius: 10px;
-        background-color: #f9f9f9;
+        background-color: #111; /* Slightly lighter black for contrast */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow effect */
     }
+
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 20px;
     }
-    .btn-home {
+
+    .btn-home, .btn-Category {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
+        background-color: #000; /* Black button */
+        color: #fff; /* White text */
+        border: 2px solid red; /* Red border */
         border-radius: 5px;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    .btn-Category {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
         text-decoration: none;
-        border-radius: 5px;
-        margin-bottom: 20px;
         font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    .btn-home:hover, .btn-Category:hover {
+        background-color: red;
+        color: #000; /* Black text on hover */
+    }
+
     .upload-form {
         margin-bottom: 30px;
     }
+
     label {
         font-weight: bold;
         margin-bottom: 5px;
         display: block;
     }
+
     input[type="text"], input[type="file"] {
         width: 100%;
         padding: 10px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        background-color: #222; /* Dark input background */
+        color: #fff; /* White text */
     }
+
     button[type="submit"] {
-        background-color: #28a745;
-        color: white;
+        background-color: red; /* Red button */
+        color: #fff; /* White text */
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     button[type="submit"]:hover {
-        background-color: #218838;
+        background-color: #fff; /* White background */
+        color: red; /* Red text on hover */
     }
+
+    .message, .error {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
     .message {
-        font-size: 1.2em;
-        font-weight: bold;
         color: green;
-        margin-bottom: 20px;
-        text-align: center;
     }
+
     .error {
-        font-size: 1.2em;
-        font-weight: bold;
         color: red;
-        margin-bottom: 20px;
-        text-align: center;
     }
+
     .uploaded-files {
         margin-top: 40px;
     }
+
     .uploaded-files img {
         width: 400px; /* Set initial image size */
-        border: 1px solid #ddd;
+        border: 2px solid red;
         border-radius: 10px;
-        transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .uploaded-files img:hover {
         transform: scale(1.2); /* Zoom effect on hover */
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow */
     }
+
     .uploaded-files p {
         font-size: 1em;
         margin-top: 10px;
+        color: #fff; /* White text */
     }
+
     .uploaded-file-item {
         margin-bottom: 30px;
         text-align: center;
     }
+
     .sequence-number {
         font-weight: bold;
         font-size: 1.2em;
         margin-bottom: 10px;
+        color: red; /* Red sequence number */
     }
 </style>
 
 <div class="container">
-    
     <!-- Home Button at the Top -->
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
+        <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
     </div>
-    <div class="header">
-        <a href="{{ route('coursera.showButtons') }}" class="btn btn-Category">Category</a>
-        </div>
+
     <!-- Show Success or Error Messages at the Top -->
     @if(session('success'))
         <div class="message">
