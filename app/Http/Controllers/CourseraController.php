@@ -113,13 +113,13 @@ public function uploadform(){
 
 public function CS(){
     $uploads = Upload::where('category', 'CS')->get(); 
-
     return view('CS', compact('uploads'));
 }
+
 public function General(){
     $uploads = Upload::where('category', 'General')->get(); 
 
     return view('General', compact('uploads'));
-}
+} 
 
 }

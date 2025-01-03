@@ -17,7 +17,7 @@
         box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow effect */
     }
 
-    .header {
+    .header { 
         display: flex;
         justify-content: space-between;
         align-items: center;

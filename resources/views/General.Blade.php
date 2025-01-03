@@ -1,9 +1,8 @@
-<!-- Blade File (CS.blade.php) -->
-
 <!-- Styles for Professional Design -->
 <style>
     body {
         font-family: Arial, sans-serif;
+        background-color: #f4f7f6; /* Light background color */
     }
     .container {
         max-width: 800px;
@@ -11,7 +10,7 @@
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        background-color: #f9f9f9;
+        background-color: #ffffff; /* White background for the container */
     }
     .header {
         display: flex;
@@ -21,22 +20,28 @@
     .btn-home {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #28a745; /* Green for the Home button */
         color: white;
         text-decoration: none;
         border-radius: 5px;
         margin-bottom: 20px;
         font-weight: bold;
     }
+    .btn-home:hover {
+        background-color: #218838;
+    }
     .btn-Category {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #007bff; /* Blue for Category button */
         color: white;
         text-decoration: none;
         border-radius: 5px;
         margin-bottom: 20px;
         font-weight: bold;
+    }
+    .btn-Category:hover {
+        background-color: #0056b3;
     }
     .upload-form {
         margin-bottom: 30px;
@@ -54,7 +59,7 @@
         border-radius: 5px;
     }
     button[type="submit"] {
-        background-color: #28a745;
+        background-color: #007bff; /* Blue for submit button */
         color: white;
         padding: 10px 20px;
         border: none;
@@ -63,7 +68,7 @@
         font-weight: bold;
     }
     button[type="submit"]:hover {
-        background-color: #218838;
+        background-color: #0056b3;
     }
     .message {
         font-size: 1.2em;
@@ -112,9 +117,12 @@
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
     </div>
+
+    <!-- Category Button -->
     <div class="header">
-        <a href="{{ route('coursera.showButtons') }}" class="btn btn-Category">Category</a>
-        </div>
+        <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
+    </div>
+
     <!-- Show Success or Error Messages at the Top -->
     @if(session('success'))
         <div class="message">
