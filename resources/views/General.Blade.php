@@ -1,47 +1,35 @@
-<!-- Styles for Professional Design -->
+<!-- Redesigned Styles for Previous Color Scheme -->
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f7f6; /* Light background color */
+        background-color: #333333; /* Dark background */
+        color: #ffffff; /* White text color */
     }
     .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        border: 1px solid #ccc;
+        border: 1px solid #444; /* Darker border */
         border-radius: 10px;
-        background-color: #ffffff; /* White background for the container */
+        background-color: #222222; /* Darker container background */
     }
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 20px;
     }
-    .btn-home {
+    .btn-home, .btn-Category {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #28a745; /* Green for the Home button */
+        background-color: #007bff; /* Blue button background */
         color: white;
         text-decoration: none;
         border-radius: 5px;
-        margin-bottom: 20px;
         font-weight: bold;
     }
-    .btn-home:hover {
-        background-color: #218838;
-    }
-    .btn-Category {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff; /* Blue for Category button */
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    .btn-Category:hover {
-        background-color: #0056b3;
+    .btn-home:hover, .btn-Category:hover {
+        background-color: #0056b3; /* Darker blue on hover */
     }
     .upload-form {
         margin-bottom: 30px;
@@ -50,16 +38,19 @@
         font-weight: bold;
         margin-bottom: 5px;
         display: block;
+        color: #f8f9fa; /* Slightly lighter text for labels */
     }
     input[type="text"], input[type="file"] {
         width: 100%;
         padding: 10px;
         margin-bottom: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid #555; /* Darker input border */
         border-radius: 5px;
+        background-color: #444; /* Darker input background */
+        color: #ffffff; /* White text in inputs */
     }
     button[type="submit"] {
-        background-color: #007bff; /* Blue for submit button */
+        background-color: #28a745; /* Green button for submission */
         color: white;
         padding: 10px 20px;
         border: none;
@@ -68,19 +59,19 @@
         font-weight: bold;
     }
     button[type="submit"]:hover {
-        background-color: #0056b3;
+        background-color: #218838; /* Darker green on hover */
     }
     .message {
         font-size: 1.2em;
         font-weight: bold;
-        color: green;
+        color: #28a745; /* Green for success messages */
         margin-bottom: 20px;
         text-align: center;
     }
     .error {
         font-size: 1.2em;
         font-weight: bold;
-        color: red;
+        color: #dc3545; /* Red for error messages */
         margin-bottom: 20px;
         text-align: center;
     }
@@ -89,7 +80,7 @@
     }
     .uploaded-files img {
         width: 400px; /* Set initial image size */
-        border: 1px solid #ddd;
+        border: 1px solid #555; /* Darker image border */
         border-radius: 10px;
         transition: transform 0.3s ease; /* Smooth transition for zoom effect */
     }
@@ -99,6 +90,7 @@
     .uploaded-files p {
         font-size: 1em;
         margin-top: 10px;
+        color: #ffffff; /* White text for descriptions */
     }
     .uploaded-file-item {
         margin-bottom: 30px;
@@ -108,11 +100,11 @@
         font-weight: bold;
         font-size: 1.2em;
         margin-bottom: 10px;
+        color: #f8f9fa; /* Slightly lighter text for sequence numbers */
     }
 </style>
 
 <div class="container">
-    
     <!-- Home Button at the Top -->
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>

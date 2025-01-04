@@ -11,7 +11,7 @@ class GitHubController extends Controller
     public function index()
     {
         // Replace the URL below with your actual GitHub profile URL
-        $githubUrl = 'https://github.com/your-profile';
+        $githubUrl = 'https://github.com/Asimirfan721/Personal-Portfolio';
 
         return redirect()->away($githubUrl);
     }

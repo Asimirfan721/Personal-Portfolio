@@ -1,14 +1,96 @@
 <!-- resources/views/calculation.blade.php -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7f6; /* Light background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .btn-secondary {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #444;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        .form-select {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .text-danger {
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+
+        .result {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin: 0;
+        }
+    </style>
 </head>
-<body> 
-    <div class="container mt-5">
-        <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
+<body>
+
+    <div class="container">
+        <a href="{{ ('/home') }}" class="btn-secondary">Home</a>
         <h1>Calculator</h1>
         <form method="POST" action="{{ route('calculation') }}">
             @csrf
@@ -38,15 +120,16 @@
                     <div class="text-danger">{{ $errors->first('operation') }}</div>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="submit" class="btn-primary">Calculate</button>
         </form>
 
         @isset($result)
-            <div class="mt-4">
+            <div class="result">
                 <h2>Result: {{ $result }}</h2>
             </div>
         @endisset
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
