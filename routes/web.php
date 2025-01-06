@@ -78,3 +78,10 @@ Route::post('/upload', [CourseraController::class, 'upload'])->name('upload');
 Route::get('/form', [CourseraController::class, 'uploadForm'])->name('form');
 Route::get('/Cyber', [CourseraController::class, 'CS'])->name('CS');
 Route::get('/General', [CourseraController::class, 'General'])->name('General'); 
+
+
+Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personal-statement');
+Route::post('/personal-statement', [PersonalStatementController::class, 'update']);
+Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
+
+Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
