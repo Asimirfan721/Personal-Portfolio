@@ -92,7 +92,7 @@ public function upload(Request $request)
         $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
         $upload = new Upload();
         $upload->description = $request->input('description');
-        $upload->image_path =  '/storage/' . $filePath; // Save file path
+        $upload->image_path =  '/uploads/' . $filePath; // Save file path
         $upload->category = $request->input('category'); // Save the category
         $upload->save();
        
