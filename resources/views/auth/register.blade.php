@@ -1,5 +1,3 @@
-<!-- resources/views/auth/register.blade.php -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +12,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
@@ -22,26 +21,31 @@
             max-width: 400px;
             width: 100%;
         }
+
         h2 {
             margin-bottom: 20px;
             color: #333;
+            text-align: center;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
             color: #555;
         }
+
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: calc(100% - 20px);
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -51,24 +55,41 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 10px; /* Highlighted change */
+            margin-bottom: 10px;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .error {
             color: red;
             font-size: 14px;
         }
-        /* New style for the 'Direct Login' button */
+
         .login-button {
+            display: block;
+            text-align: center;
             background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            text-decoration: none;
+            margin-top: 10px;
         }
+
         .login-button:hover {
             background-color: #218838;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -103,11 +124,8 @@
                 <input id="password-confirm" type="password" name="password_confirmation" required>
             </div>
             <button type="submit">Register</button>
-            <!-- Highlighted change: 'Direct Login' button -->
-            <a href="{{ route('login') }}">
-                <button type="button" class="login-button">Login</button>
-            </a>
         </form>
+        <a href="{{ route('login') }}" class="login-button">Login</a>
     </div>
 </body>
 </html>
