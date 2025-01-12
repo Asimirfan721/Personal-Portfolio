@@ -13,7 +13,7 @@ class PersonalStatementCategory extends Model
     protected $table = 'personal_statement_categories';
 
     public function category()
-    {
+    { 
         return $this->belongsTo(PersonalStatementCategory::class, 'category_id');
     }
 }

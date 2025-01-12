@@ -10,7 +10,7 @@ class CourseraController extends Controller
     public function showButtons()
     {
         return view('buttons');
-    }
+    } 
 
     // public function showCategory($category)
     // {

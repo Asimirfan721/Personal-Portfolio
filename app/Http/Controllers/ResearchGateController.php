@@ -12,7 +12,7 @@ class ResearchGateController extends Controller
     {
         // Replace the URL below with your actual ResearchGate profile URL
         $researchGateUrl = 'https://www.researchgate.net/profile/Asim-Irfan';
-
+ 
         return redirect()->away($researchGateUrl);
     }
 }

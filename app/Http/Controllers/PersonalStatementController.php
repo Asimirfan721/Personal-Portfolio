@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PersonalStatementController extends Controller
 {
     // Display the categories and the existing statement (if any)
-    public function index()
+    public function index() 
     {
         $userId = Auth::id();
         $categories = PersonalStatementCategory::all();  // Get all categories

@@ -13,7 +13,7 @@ class ResumeController extends Controller
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
 
         return view('resume', compact('files', 'descriptions'));
-    }
+    } 
 
     public function upload(Request $request)
     {

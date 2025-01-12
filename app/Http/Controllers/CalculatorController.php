@@ -14,7 +14,7 @@ class CalculatorController extends Controller
  
     public function calculate(Request $request)        
     {
-        $request->validate([
+        $request->validate([ 
             'number1' => 'required|numeric',
             'number2' => 'required|numeric',
             'operation' => 'required|string|in:add,subtract,multiply,divide',

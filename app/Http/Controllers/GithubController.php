@@ -13,6 +13,6 @@ class GitHubController extends Controller
         // Replace the URL below with your actual GitHub profile URL
         $githubUrl = 'https://github.com/Asimirfan721';
 
-        return redirect()->away($githubUrl);
+        return redirect()->away($githubUrl); 
     }
 }
