@@ -11,7 +11,7 @@ class CalculatorController extends Controller
     {
         return view('calculation');
     }
- 
+   
     public function calculate(Request $request)        
     {
         $request->validate([ 

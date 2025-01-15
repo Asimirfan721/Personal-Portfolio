@@ -26,7 +26,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/calculation', [CalculatorController::class, 'show'])->name('Calculation');
 Route::post('/calculation', [CalculatorController::class, 'calculate'])->name('calculation');
-
+  
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/linkedin', [LinkedInController::class, 'index'])->name('linkedin');

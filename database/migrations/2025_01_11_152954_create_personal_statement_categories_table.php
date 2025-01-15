@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.

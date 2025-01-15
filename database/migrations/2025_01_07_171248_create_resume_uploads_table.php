@@ -14,7 +14,7 @@ class CreateResumeUploadsTable extends Migration
             $table->timestamps(); // Created at and Updated at timestamps
         });
     }
-
+  
     public function down()
     {
         Schema::dropIfExists('resume_uploads');
