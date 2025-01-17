@@ -37,3 +37,4 @@ class StatementOfPurposeController extends Controller
         return redirect()->route('statement-of-purpose')->with('success', 'Statement of Purpose updated successfully!');
     }
 }
+ 

@@ -11,6 +11,7 @@ use App\Http\Controllers\CourseraController;
 use App\Http\Controllers\PersonalStatementController;
 use App\Http\Controllers\StatementofPurposeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResumeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,7 +26,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/calculation', [CalculatorController::class, 'show'])->name('Calculation');
 Route::post('/calculation', [CalculatorController::class, 'calculate'])->name('calculation');
-
+  
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/linkedin', [LinkedInController::class, 'index'])->name('linkedin');
@@ -85,3 +86,8 @@ Route::post('/personal-statement', [PersonalStatementController::class, 'update'
 Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
 
 Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
+
+
+Route::get('/resume', [ResumeController::class, 'index'])->name('resume');
+Route::post('/resume/upload', [ResumeController::class, 'upload'])->name('resume.upload');
+

@@ -10,9 +10,10 @@ class PersonalStatementCategory extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'category_id', 'content'];
+    protected $table = 'personal_statement_categories';
 
     public function category()
-    {
+    { 
         return $this->belongsTo(PersonalStatementCategory::class, 'category_id');
     }
 }

@@ -5,30 +5,65 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa; /* Light background for a clean look */
-            color: #343a40; /* Dark text for contrast */
+            background-color: #121212; /* Black background for contrast */
+            color: #ffffff; /* White text for readability */
+            font-family: 'Arial', sans-serif;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff; /* White card-style container */
+            background-color: #1e1e1e; /* Dark gray for the form container */
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            border: 1px solid #ff0000; /* Red border for emphasis */
         }
         h1 {
-            color: #007bff; /* Bootstrap primary color for header */
+            color: #ff0000; /* Red header for a bold look */
             text-align: center;
             margin-bottom: 20px;
         }
         .btn-secondary {
-            margin-bottom: 20px;
+            background-color: #ff0000; /* Red for the home button */
+            border: none;
+            color: #ffffff;
+        }
+        .btn-secondary:hover {
+            background-color: #cc0000; /* Darker red for hover effect */
+        }
+        .form-label {
+            color: #ffffff; /* Ensure labels are readable */
         }
         .form-control {
-            resize: none; /* Disable textarea resizing for consistency */
+            background-color: #2c2c2c; /* Dark input fields */
+            border: 1px solid #ff0000; /* Red border for input fields */
+            color: #ffffff; /* White text inside inputs */
         }
-        .alert {
-            text-align: center;
+        .form-control::placeholder {
+            color: #cccccc; /* Lighter gray for placeholders */
+        }
+        .form-control:focus {
+            background-color: #2c2c2c;
+            border-color: #ff0000;
+            color: #ffffff;
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25); /* Subtle red glow */
+        }
+        .btn-primary {
+            background-color: #ff0000; /* Red save button */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #cc0000; /* Darker red hover effect */
+        }
+        .alert-success {
+            background-color: #1e4620; /* Dark green for success */
+            border-color: #28a745;
+            color: #ffffff;
+        }
+        .alert-danger {
+            background-color: #4a1e1e; /* Dark red for error alerts */
+            border-color: #ff0000;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -37,11 +72,11 @@
         <h1>Statement of Purpose</h1>
 
         <!-- Home Button -->
-        <a href="{{ url('/home') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ url('/home') }}" class="btn btn-secondary mb-3">Home</a>
 
         <!-- Success Message -->
         @if(session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @endif
