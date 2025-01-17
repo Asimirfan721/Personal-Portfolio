@@ -14,7 +14,7 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-        }
+        }    
         .container {
             background-color: #fff;
             padding: 40px;
@@ -23,7 +23,7 @@
             width: 90%;
             max-width: 600px;
         }
-        h1 {
+        h1 {    
             margin-bottom: 30px;
             color: #343a40;
             font-weight: bold;
@@ -73,11 +73,11 @@
     <div class="container">
         <h1>User Profile</h1>
 
-        <!-- Success and Error Messages -->
+       
         @if(session('success'))
             <div class="message success">
                 {{ session('success') }}
-            </div>
+            </div> 
         @endif
 
         @if(session('error'))
@@ -86,10 +86,10 @@
             </div>
         @endif
 
-        <!-- Ensure $user is not null -->
+       
         @if($user)
             <div class="profile-image">
-                <!-- Display the user's profile image if it exists -->
+               
                 @if($user->profile_image)
                     <img src="{{ asset('uploads/' . $user->profile_image) }}" alt="Profile Image">
                 @else
@@ -108,7 +108,7 @@
                 </div>
             </div>
 
-            <!-- File Upload Form -->
+          
             <form method="POST" action="{{ route('profile.upload') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">

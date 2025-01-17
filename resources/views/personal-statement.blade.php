@@ -8,18 +8,18 @@
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Home Button -->
+        <!-- Home Buttn -->
         <div class="d-flex justify-content-between align-items-center">
             <h1>Personal Statement</h1>
             <a href="{{ url('/home') }}" class="btn btn-secondary">Home</a>
         </div>
 
-        <!-- Success Message -->
+        <!-- Success Mesage -->
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         
-        <!-- Category Selection -->
+        <!-- Category Seletion -->
         <h3>Select Category</h3>
         <div class="mb-3">
             @foreach($categories as $category)
@@ -29,7 +29,7 @@
             @endforeach
         </div>
 
-        <!-- Option to Create New Category -->
+        <!-- Option toCreate New Category -->
         <h3>Create New Category</h3>
         <form action="{{ route('personalStatement.createCategory') }}" method="POST">
             @csrf
@@ -40,12 +40,12 @@
         </form>
         
 
-        <!-- Form to Write Personal Statement -->
+        <!-- Form to Writ Personal Statement -->
         <h3>Write Personal Statement</h3>
         <form method="POST" action="{{ url('/personal-statement') }}">
             @csrf
             <div class="mb-3">
-                <!-- Category Selection (dropdown or radio buttons) -->
+                <!-- Categry Selection (dropdown or radio buttons) -->
                 <select name="category_id" class="form-control" required>
                     <option value="">Select Category</option>
                     @foreach($categories as $category)

@@ -2,16 +2,16 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #333333; /* Dark background */
-        color: #ffffff; /* White text color */
+        background-color: #333333; /* Dark baackground */
+        color: #ffffff; /* White text colorr */
     }
     .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        border: 1px solid #444; /* Darker border */
+        border: 1px solid #444; /* Darker bborder */
         border-radius: 10px;
-        background-color: #222222; /* Darker container background */
+        background-color: #222222; /* Darker cvontainer background */
     }
     .header {
         display: flex;
@@ -22,14 +22,14 @@
     .btn-home, .btn-Category {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #007bff; /* Blue button background */
+        background-color: #007bff; /* Blue burtton background */
         color: white;
         text-decoration: none;
         border-radius: 5px;
         font-weight: bold;
     }
     .btn-home:hover, .btn-Category:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+        background-color: #0056b3; /* Darker blcue on hover */
     }
     .upload-form {
         margin-bottom: 30px;

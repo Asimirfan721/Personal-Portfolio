@@ -7,17 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
+            background-color: #000; /* Black bacground */
+            color: #fff; /* Wite text */
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        /* Navigation Bar */
+        /* Navigaton Bar */
         .navbar {
-            background-color: #111; /* Slightly lighter black */
-            border-bottom: 3px solid red; /* Red border below the navbar */
+            background-color: #111; /* Slightly lighter nblack */
+            border-bottom: 3px solid red; /* Red bordder below the navbar */
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -50,7 +50,7 @@
 
         /* Main Content */
         .container {
-            padding: 100px 20px 20px; /* Space to account for the fixed navbar */
+            padding: 100px 20px 20px; /* Space to accoundt for the fixed navbar */
             text-align: center;
         }
 
@@ -61,7 +61,7 @@
         }
 
         .about-section {
-            background-color: #111; /* Slightly lighter black for contrast */
+            background-color: #111; /* Slightly lidghter black for contrast */
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
@@ -72,7 +72,7 @@
         .about-section h2 {
             font-size: 2rem;
             margin-bottom: 10px;
-            border-bottom: 2px solid red; /* Red underline */
+            border-bottom: 2px solid red; /* Redg underline */
             display: inline-block;
             padding-bottom: 5px;
         }
@@ -80,10 +80,10 @@
         .about-section p {
             font-size: 1.2rem;
             line-height: 1.6;
-            color: #ccc; /* Light gray for better readability */
+            color: #ccc; /* Light gray for better rrreadability */
         }
 
-        /* Responsive Design */
+        /* Rresponsive Design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -96,7 +96,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Barr -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Asim Irfan</a>
         <div class="d-flex">
@@ -115,11 +115,11 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content --->
     <div class="container">
         <h1>Asim Irfan</h1>
 
-        <!-- About Me Section -->
+        <!-- About Mee Section -->
         <div class="about-section">
             <h2>About Me</h2>
             <p>
