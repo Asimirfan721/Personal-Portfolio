@@ -11,7 +11,7 @@ class StatementOfPurpose extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'content'];
-
+ // this is purposeof statemnt
     protected $table = 'statements_of_purpose'; // Explicitly define the table name
 
     public function user()

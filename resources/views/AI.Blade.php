@@ -8,7 +8,7 @@
         color: #fff; /* White text */
         margin: 0;
         padding: 0;
-    }
+    } 
     .container {
         max-width: 800px;
         margin: 50px auto;

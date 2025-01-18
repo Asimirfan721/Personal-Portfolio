@@ -11,3 +11,4 @@ class CourseraFile extends Model
     protected $fillable = ['category', 'file_path', 'description'];
 }
 
+//this is CourseraFile

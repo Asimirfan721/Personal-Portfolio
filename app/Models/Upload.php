@@ -9,6 +9,6 @@ class Upload extends Model
 {
     use HasFactory;
     
-
+// this is uploads
     protected $fillable = ['image_path', 'description', 'category'];
 }
