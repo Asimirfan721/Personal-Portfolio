@@ -4,54 +4,73 @@
 namespace App\Http\Controllers;
 
 use App\Models\PersonalStatement;
-use App\Models\PersonalStatementCategory;  // Import the Category model
+use App\Models\PersonalStatementCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PersonalStatementController extends Controller
 {
-    // Display the categories and the existing statement (if any)
-    public function index() 
+    public function __construct()
+    {
+        // Ensure only authenticated users can access these methods
+        $this->middleware('auth');
+    }
+
+    // Display categories and existing statements (if any)
+    public function index()
     {
         $userId = Auth::id();
-        $categories = PersonalStatementCategory::all();  // Get all categories
-        $statement = PersonalStatement::where('user_id', $userId)->first();
+        $categories = PersonalStatementCategory::all();  // Retrieve all categories
+        $statement = PersonalStatement::where('user_id', $userId)->first();  // Retrieve user's first statement (if any)
 
         return view('personal-statement', compact('categories', 'statement'));
     }
 
-    // Store or update personal statement
-    public function update(Request $request)
-{
-    $request->validate([
-        'content' => 'required|string',
-        'category_id' => 'required|exists:personal_statement_categories,id',
-    ]);
+    // Show the personal statement for a specific category
+    public function show($categoryId)
+    {
+        $category = PersonalStatementCategory::findOrFail($categoryId);  // Fetch the category
+        $userId = Auth::id();
+        $statement = PersonalStatement::where('user_id', $userId)
+            ->where('category_id', $categoryId)
+            ->first();  // Fetch the user's statement for this category
 
-    $userId = Auth::id();
-    $categoryId = $request->input('category_id');
-
-    $statement = PersonalStatement::where('user_id', $userId)
-                                  ->where('category_id', $categoryId)
-                                  ->first();
-
-    if (!$statement) {
-        $statement = new PersonalStatement();
-        $statement->user_id = $userId;
-        $statement->category_id = $categoryId;
+        return view('personal-statement', [
+            'statement' => $statement,
+            'category' => $category,
+        ]);
     }
 
-    $statement->content = $request->input('content');
-    $statement->save();
+    // Store or update the personal statement
+    public function update(Request $request)
+    {
+        $request->validate([
+            'content' => 'required|string',
+            'category_id' => 'required|exists:personal_statement_categories,id',
+        ]);
 
-    return redirect()->route('personalStatement.show', $categoryId)->with('success', 'Personal Statement updated successfully!');
-}
+        $userId = Auth::id();
+        $categoryId = $request->input('category_id');
+
+        // Use updateOrCreate to simplify the logic
+        PersonalStatement::updateOrCreate(
+            [
+                'user_id' => $userId,
+                'category_id' => $categoryId,
+            ],
+            [
+                'content' => $request->input('content'),
+            ]
+        );
+
+        return redirect()->route('personalStatement.show', $categoryId)->with('success', 'Personal Statement updated successfully!');
+    }
 
     // Create a new category
     public function createCategory(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:personal_statement_categories,name',
         ]);
 
         PersonalStatementCategory::create([
@@ -60,21 +79,4 @@ class PersonalStatementController extends Controller
 
         return redirect()->route('personal-statement')->with('success', 'New category created!');
     }
-    public function show($categoryId)
-{
-    // Get the selected category
-    $category = PersonalStatementCategory::findOrFail($categoryId);
-    
-    // Get the current user's personal statement
-    $userId = Auth::id();
-    $statement = PersonalStatement::where('user_id', $userId)
-                ->where('category_id', $categoryId)
-                ->first();
-
-    return view('personal-statement', [
-        'statement' => $statement,
-        'category' => $category
-    ]);
-}
-
 }
