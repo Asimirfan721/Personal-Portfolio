@@ -10,7 +10,7 @@ class StatementOfPurpose extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'content'];
+    protected $fillable = ['user_id', 'content', 'email'];
  // this is purposeof statemnt
     protected $table = 'statements_of_purpose'; // Explicitly define the table name
 

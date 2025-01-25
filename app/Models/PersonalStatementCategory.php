@@ -9,7 +9,7 @@ class PersonalStatementCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'category_id', 'content'];
+    protected $fillable = ['user_id', 'category_id', 'content', 'email'];
     protected $table = 'personal_statement_categories';
 // this is personal statment
     public function category()

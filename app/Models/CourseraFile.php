@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CourseraFile extends Model
 {
     use HasFactory;
-    protected $fillable = ['category', 'file_path', 'description'];
+    protected $fillable = ['category', 'file_path', 'description', 'email'];
 }
 
 //this is CourseraFile

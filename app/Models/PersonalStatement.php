@@ -13,7 +13,7 @@ class PersonalStatement extends Model
     use HasFactory;
     //this is for factory/
 
-    protected $fillable = ['user_id', 'category_id', 'content'];
+    protected $fillable = ['user_id', 'category_id', 'content', 'email'];
 
     public function category()
     {
