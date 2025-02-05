@@ -13,7 +13,7 @@ class PersonalStatementController extends Controller
     public function __construct()
     {
         // Ensure only authenticated users can access these methods
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     // Display categories and existing statements (if any)

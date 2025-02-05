@@ -10,22 +10,33 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::table('personal_statements', function (Blueprint $table) {
-        $table->unsignedBigInteger('category_id')->nullable()->after('user_id');
-        
-        // Add foreign key constraint if you have a categories table
-        $table->foreign('category_id')->references('id')->on('personal_statement_categories')->onDelete('cascade');
-    });
-}
+    {
+        // Ensure the categories table exists before running this migration
+        if (!Schema::hasTable('personal_statement_categories')) {
+            throw new Exception("Table 'personal_statement_categories' does not exist.");
+        }
 
-public function down()
-{
-    Schema::table('personal_statements', function (Blueprint $table) {
-        $table->dropForeign(['category_id']);
-        $table->dropColumn('category_id');
-    });
-}
+        Schema::table('personal_statements', function (Blueprint $table) {
+            if (!Schema::hasColumn('personal_statements', 'category_id')) {
+                $table->unsignedBigInteger('category_id')->nullable()->after('user_id');
+                $table->foreign('category_id')
+                      ->references('id')
+                      ->on('personal_statement_categories')
+                      ->onDelete('cascade');
+            }
+        });
+    }
 
-
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        Schema::table('personal_statements', function (Blueprint $table) {
+            if (Schema::hasColumn('personal_statements', 'category_id')) {
+                $table->dropForeign(['category_id']);
+                $table->dropColumn('category_id');
+            }
+        });
+    }
 };
