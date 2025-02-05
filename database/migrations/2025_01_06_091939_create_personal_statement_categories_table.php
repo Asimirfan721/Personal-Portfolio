@@ -11,11 +11,6 @@ return new class extends Migration
      */
     public function up()
     {
-        // Ensure the categories table exists before running this migration
-        if (!Schema::hasTable('personal_statement_categories')) {
-            throw new Exception("Table 'personal_statement_categories' does not exist.");
-        }
-
         Schema::table('personal_statements', function (Blueprint $table) {
             if (!Schema::hasColumn('personal_statements', 'category_id')) {
                 $table->unsignedBigInteger('category_id')->nullable()->after('user_id');
@@ -27,7 +22,8 @@ return new class extends Migration
         });
     }
 
-    /**igrations.
+    /**
+     * Reverse the migrations.
      */
     public function down()
     {
