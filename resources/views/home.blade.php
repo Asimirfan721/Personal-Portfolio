@@ -50,12 +50,11 @@
 
         /* Main Content */
         .container {
-<<<<<<< HEAD
+
             padding: 100px 20px 20px; /* Space to accoundt for the fixed navbar */
             text-align: center;
-=======
             padding: 100px 20px 20px; /* Space to account for the fixed navbar */
->>>>>>> c79c99ad5315db2bd402cf1172754cf7714925d6
+
         }
 
         h1 {
@@ -84,10 +83,7 @@
             line-height: 1.6;
             color: #ccc; /* Light gray for better rrreadability */
         }
-
-<<<<<<< HEAD
-        /* Rresponsive Design */
-=======
+        /* Responsive Design */
         .profile-image {
             max-width: 100%; /* Responsive */
             border-radius: 10px; /* Rounded corners */
@@ -100,7 +96,17 @@
             gap: 30px;
         }
 
->>>>>>> c79c99ad5315db2bd402cf1172754cf7714925d6
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -143,7 +149,6 @@
                 <img src="{{ asset('images/your-image.jpg') }}" alt="Asim Irfan" class="profile-image">
             </div>
 
-<<<<<<< HEAD
         <!-- About Mee Section -->
         <div class="about-section">
             <h2>About Me</h2>
@@ -152,17 +157,6 @@
                 I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
                 I have experience in research and leadership, having published research papers and led multiple teams to success.
             </p>
-=======
-            <!-- About Section -->
-            <div class="about-section">
-                <h2>About Me</h2>
-                <p>
-                    Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies. 
-                    I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
-                    I have experience in research and leadership, having published research papers and led multiple teams to success.
-                </p>
-            </div>
->>>>>>> c79c99ad5315db2bd402cf1172754cf7714925d6
         </div>
     </div>
 
