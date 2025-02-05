@@ -10,7 +10,7 @@ class CalculatorController extends Controller
 {
     /**
      * Display the calculator form.
-     *
+     * 
      * @return \Illuminate\View\View
      */
     public function show()

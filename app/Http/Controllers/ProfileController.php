@@ -38,7 +38,7 @@ class ProfileController extends Controller
             // Add more validation rules if necessary
         ]);
  
-        // Get the currently authenticated user
+        // Get the currentl y authenticated user
         $userId = Auth::id();
         $user = User::find($userId);
 
