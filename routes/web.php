@@ -33,7 +33,7 @@ Route::get('/linkedin', [LinkedInController::class, 'index'])->name('linkedin');
 Route::get('/github', [GitHubController::class, 'index'])->name('github');
 Route::get('/researchgate', [ResearchGateController::class, 'index'])->name('researchgate');
 Route::get('/coursera', [CourseraController::class, 'index'])->name('coursera');
-Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personal-statement');
+Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personalStatement.index');
 Route::post('/personal-statement', [PersonalStatementController::class, 'update']);
 Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose');
 Route::post('/statement-of-purpose', [StatementOfPurposeController::class, 'update']);
@@ -83,7 +83,7 @@ Route::get('/General', [CourseraController::class, 'General'])->name('General');
 
 Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personal-statement');
 Route::post('/personal-statement', [PersonalStatementController::class, 'update']);
-Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
+Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'index'])->name('personalStatement.createCategory');
 
 Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
 

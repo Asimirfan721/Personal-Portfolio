@@ -19,15 +19,17 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         
-        <!-- Category Seletion -->
+        @if(isset($categories))
         <h3>Select Category</h3>
         <div class="mb-3">
-            @foreach($categories as $category)
-                <a href="{{ route('personalStatement.show', $category->id) }}">
-                    <button class="btn btn-outline-primary me-2">{{ $category->name }}</button>
-                </a>
-            @endforeach
+            <select name="category_id" id="category_id" class="form-control">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
         </div>
+    @endif
+    
 
         <!-- Option toCreate New Category -->
         <h3>Create New Category</h3>
