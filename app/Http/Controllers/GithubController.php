@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/GitHubController.php
+// app/Http/Controllers/GitHubController.
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

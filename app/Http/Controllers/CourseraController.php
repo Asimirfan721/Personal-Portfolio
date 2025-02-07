@@ -8,7 +8,7 @@ use App\Models\Upload;
 class CourseraController extends Controller
 {
     /**
-     * Show the main buttons view.
+     * Show the main butt view.
      *
      * @return \Illuminate\View\View
      */
