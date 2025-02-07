@@ -10,7 +10,7 @@ class ResearchGateController extends Controller
 {
     public function index()
     {
-        // Replace the U RL below with your actual ResearchGate profile URL
+        // Replace the U RL below withle URL
         $researchGateUrl = 'https://www.researchgate.net/profile/Asim-Irfan';
  
         return redirect()->away($researchGateUrl);

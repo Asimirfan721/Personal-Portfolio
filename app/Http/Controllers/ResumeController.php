@@ -8,7 +8,7 @@ class ResumeController extends Controller
 {
     public function index()
     {
-        // Fetch uploaded files to display
+        
         $files = Storage::disk('public')->files('resume');
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
 
@@ -22,10 +22,10 @@ class ResumeController extends Controller
             'description' => 'required|string|max:255',
         ]);
 
-        // Store file in the 'public/resume' folder
+        // Store file in the 'public/resume' 
         $path = $request->file('file')->store('resume', 'public');
 
-        // Save description
+        // Save description hi this is 
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
         $descriptions[$path] = $request->description;
         Storage::put('public/resume/descriptions.json', json_encode($descriptions));

@@ -12,7 +12,7 @@ class PersonalStatementController extends Controller
 {
     public function __construct()
     {
-        // Ensure only aut henticated users can access these methods
+        // Ensure only auts can access these methods
       //  $this->middleware('auth');
     }
 
