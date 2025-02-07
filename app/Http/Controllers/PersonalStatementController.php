@@ -33,7 +33,7 @@ class PersonalStatementController extends Controller
         $userId = Auth::id();
         $statement = PersonalStatement::where('user_id', $userId)
             ->where('category_id', $categoryId)
-            ->first();  // Fetch the user's statement for this category
+            ->first();  // Fetch the user' 
 
         return view('personal-statement', [
             'statement' => $statement,
@@ -41,7 +41,7 @@ class PersonalStatementController extends Controller
         ]);
     }
 
-    // Store or update the personal statement
+    // Store or 
     public function update(Request $request)
     {
         $request->validate([
