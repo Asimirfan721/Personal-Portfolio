@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateCourseUploadsTable extends Migration
 {
     /**  
-     * Run the migrations.
+     * Run the mi grations.
      *
      * @return void
      */

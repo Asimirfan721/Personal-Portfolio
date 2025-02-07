@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('personal_statements', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable()->after('user_id');
             
-            // Add foreign key constraint if you have a categories table
+            // Add foreign key constraint if you  have a categories table
             $table->foreign('category_id')->references('id')->on('personal_statement_categories')->onDelete('cascade');
         });
     }
