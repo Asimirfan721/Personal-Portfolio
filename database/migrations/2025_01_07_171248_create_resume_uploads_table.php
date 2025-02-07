@@ -10,7 +10,7 @@ class CreateResumeUploadsTable extends Migration
         Schema::create('resume_uploads', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->string('file_path'); // Path to the uploaded file
-            $table->text('description')->nullable(); // Description of the file
+            $table->text('description')->nullable(); // De scription of the file
             $table->timestamps(); // Created at and Updated at timestamps
         });
     }
