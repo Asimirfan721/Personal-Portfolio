@@ -11,4 +11,4 @@ class Category extends Model
 
     protected $fillable = ['category', 'file_path', 'description'];
 }
-  //this is model
+  //this  is model

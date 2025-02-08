@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/ResearchGateController.php
+// app/Http/Controllers/Researc hGateController.php
 
 namespace App\Http\Controllers;
 

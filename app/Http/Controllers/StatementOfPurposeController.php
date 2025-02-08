@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/StatementOfPurposeController.php
+// app/Http/Controllers/StatementOf PurposeController.php
 
 namespace App\Http\Controllers;
 

@@ -25,7 +25,7 @@ class ResumeController extends Controller
         // Store file in the 'public/resume' 
         $path = $request->file('file')->store('resume', 'public');
 
-        // Save description hi this is 
+        // Save description hi thi s is 
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
         $descriptions[$path] = $request->description;
         Storage::put('public/resume/descriptions.json', json_encode($descriptions));
