@@ -20,3 +20,4 @@ class CreatePersonalStatementsTable extends Migration
         Schema::dropIfExists('personal_statements');
     }
 }
+  
