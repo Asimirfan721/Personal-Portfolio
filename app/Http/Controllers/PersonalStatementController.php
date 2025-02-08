@@ -33,7 +33,7 @@ class PersonalStatementController extends Controller
         $userId = Auth::id();
         $statement = PersonalStatement::where('user_id', $userId)
             ->where('category_id', $categoryId)
-            ->first();  // Fetch the user' 
+            ->first();  // Fetch te user' 
 
         return view('personal-statement', [
             'statement' => $statement,
