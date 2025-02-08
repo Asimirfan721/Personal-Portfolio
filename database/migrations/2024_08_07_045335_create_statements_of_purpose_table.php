@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateStatementsOfPurposeTable extends Migration
 {
     /**
-     * Run the mig rations.
+     * Run the mig\srations.
      *
      * @return void
      */
