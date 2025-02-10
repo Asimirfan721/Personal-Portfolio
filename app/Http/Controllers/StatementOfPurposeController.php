@@ -18,32 +18,36 @@ class StatementOfPurposeController extends Controller
     // Show create SOP form
     public function create()
     {
-        return view('statement-of-purpose', ['create' => true, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
+        return view('statement-of-purpos', ['create' => true, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
     }
 
     // Show edit SOP form
     public function edit($id)
     {
         $sop = StatementOfPurpose::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
-        return view('statement-of-purpose', ['edit' => $sop, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
+        return view('statement-of-purpos', ['edit' => $sop, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
     }
 
     // Store new SOP
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
+{
+    // Validate the inputs
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+    ]);
 
-        StatementOfPurpose::create([
-            'user_id' => Auth::id(),
-            'title' => $request->title,
-            'content' => $request->content,
-        ]);
+    // Create a new statement of purpose and store it in the database
+    $statement = new StatementOfPurpose();
+    $statement->title = $request->input('title'); // Ensure title is saved
+    $statement->content = $request->input('content');
+    $statement->user_id = Auth::id(); // Associate the user with the SOP
+    $statement->save();
 
-        return redirect()->route('statement-of-purpose.index')->with('success', 'Statement of Purpose created successfully!');
-    }
+    return redirect()->route('statement-of-purpose.index')->with('success', 'Statement of Purpose created successfully!');
+}
+
+
 
     // Update SOP
     public function update(Request $request, $id)
@@ -68,6 +72,6 @@ class StatementOfPurposeController extends Controller
         $statement = StatementOfPurpose::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         $statement->delete();
 
-        return redirect()->route('statement-of-purpose.index')->with('success', 'Statement of Purpose deleted successfully!');
+        return redirect()->route('statement-of-purpos.index')->with('success', 'Statement of Purpose deleted successfully!');
     }
 }

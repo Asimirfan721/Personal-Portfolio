@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('sops', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); // This will be the button name
-            $table->text('content')->nullable(); // This will store the SOP text
+            $table->string('title'); // Make sure there's a column for title
+            $table->text('content');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
     
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. 
      */
     public function down(): void
     {
