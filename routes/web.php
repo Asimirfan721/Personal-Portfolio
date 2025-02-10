@@ -91,3 +91,14 @@ Route::get('/personal-statement/{categoryId}', [PersonalStatementController::cla
 Route::get('/resume', [ResumeController::class, 'index'])->name('resume');
 Route::post('/resume/upload', [ResumeController::class, 'upload'])->name('resume.upload');
 
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/statement-of-purpos', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose.index');
+    Route::get('/statement-of-purpose/create', [StatementOfPurposeController::class, 'create'])->name('statement-of-purpose.create');
+    Route::post('/statement-of-purpose/store', [StatementOfPurposeController::class, 'store'])->name('statement-of-purpose.store');
+    Route::get('/statement-of-purpose/{id}/edit', [StatementOfPurposeController::class, 'edit'])->name('statement-of-purpose.edit');
+    Route::post('/statement-of-purpose/{id}/update', [StatementOfPurposeController::class, 'update'])->name('statement-of-purpose.update');
+    Route::delete('/statement-of-purpose/{id}', [StatementOfPurposeController::class, 'destroy'])->name('statement-of-purpose.destroy');
+});

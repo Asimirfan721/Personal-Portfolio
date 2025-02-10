@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Auth;
 class StatementOfPurposeController extends Controller
 {
     // Show the Statement of Purpose form
-    public function index()
+   public function index()
 {
     $userId = Auth::id();
-    $statements = StatementOfPurpose::where('user_id', $userId)->get(); // Fetch all records
+    $statement = StatementOfPurpose::where('user_id', $userId)->first();
 
-    return view('statement-of-purpose', compact('statements'));
+    if (!$statement) {
+        $statement = new StatementOfPurpose(); // Create an empty object to avoid errors
+    }
+
+    return view('statement-of-purpose', compact('statement'));
 }
 
-
-    
 
     // Save or Update the Statement of Purpose
     public function update(Request $request)

@@ -111,16 +111,16 @@
         <!-- SOP Buttons -->
         <div class="sop-buttons">
             @foreach ($statements as $sop)
-            <a href="{{ route('statement-of-purpose', $sop->id) }}" class="sop-button">{{ $sop->title }}</a>
+            <a href="{{ route('statement-of-purpose.edit', $sop->id) }}" class="sop-button">{{ $sop->title }}</a>
         @endforeach
         </div>
 
         <!-- Create New SOP Button -->
-        <a href="{{ route('statement-of-purpose') }}" class="btn btn-primary w-100 mt-3">Create New SOP</a>
+        <a href="{{ route('statement-of-purpose.create') }}" class="btn btn-primary w-100 mt-3">Create New SOP</a>
 
         <!-- SOP Form (Only show when editing or creating) -->
         @if(isset($sop))
-            <form method="POST" action="{{ route('statement-of-purpose', $sop->id) }}" class="mt-4">
+            <form method="POST" action="{{ route('statement-of-purpose.update', $sop->id) }}" class="mt-4">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Title</label>
@@ -134,7 +134,7 @@
             </form>
 
             <!-- Delete Button -->
-            <form method="POST" action="{{ route('statement-of-purpose', $sop->id) }}" class="mt-2">
+            <form method="POST" action="{{ route('statement-of-purpose.destroy', $sop->id) }}" class="mt-2">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger w-100">Delete SOP</button>
