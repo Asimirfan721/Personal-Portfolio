@@ -72,7 +72,7 @@ class ProfileController extends Controller
 
         $userId = Auth::user()->id;
 
-        // Generate a unthe uploaded file
+        // Generate a unthe u ploaded file
         $fileName = time() . '.' . $request->file->extension();
         $request->file->move(public_path('uploads'), $fileName);
         $user = User::find($userId); // Ensure this is correct

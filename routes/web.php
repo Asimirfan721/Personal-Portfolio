@@ -102,3 +102,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/statement-of-purpose/{id}/update', [StatementOfPurposeController::class, 'update'])->name('statement-of-purpose.update');
     Route::delete('/statement-of-purpose/{id}', [StatementOfPurposeController::class, 'destroy'])->name('statement-of-purpose.destroy');
 });
+
+
+
+// Route to create a new category
+Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
+
+// Route to update personal statement
+Route::post('/personal-statement/update', [PersonalStatementController::class, 'update'])->name('personalStatement.update');

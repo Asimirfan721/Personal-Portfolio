@@ -72,6 +72,6 @@ class StatementOfPurposeController extends Controller
         $statement = StatementOfPurpose::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         $statement->delete();
 
-        return redirect()->route('statement-of-purpos.index')->with('success', 'Statement of Purpose deleted successfully!');
+        return redirect()->route('statement-of-purpose.destroy')->with('success', 'Statement of Purpose deleted successfully!');
     }
 }

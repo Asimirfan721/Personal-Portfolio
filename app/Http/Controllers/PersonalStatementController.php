@@ -12,8 +12,8 @@ class PersonalStatementController extends Controller
 {
     public function __construct()
     {
-        // Ensure only aucan access these methods
-      //  $this->middleware('auth');
+        // Ensure only authenticated users can access these methods
+        // $this->middleware('auth');
     }
 
     // Display categories and existing statements (if any)
@@ -26,22 +26,7 @@ class PersonalStatementController extends Controller
         return view('personal-statement', compact('categories', 'statement'));
     }
 
-    // Show the personal statement for a specific category
-    public function show($categoryId)
-    {
-        $category = PersonalStatementCategory::findOrFail($categoryId);  // Fetch the category
-        $userId = Auth::id();
-        $statement = PersonalStatement::where('user_id', $userId)
-            ->where('category_id', $categoryId)
-            ->first();  // Fetch te user' 
-
-        return view('personal-statement', [
-            'statement' => $statement,
-            'category' => $category,
-        ]);
-    }
-
-    // Store or 
+    // Store or update the personal statement
     public function update(Request $request)
     {
         $request->validate([
@@ -63,7 +48,7 @@ class PersonalStatementController extends Controller
             ]
         );
 
-        return redirect()->route('personalStatement.show', $categoryId)->with('success', 'Personal Statement updated successfully!');
+        return redirect()->route('personal-statement')->with('success', 'Personal Statement updated successfully!');
     }
 
     // Create a new category
