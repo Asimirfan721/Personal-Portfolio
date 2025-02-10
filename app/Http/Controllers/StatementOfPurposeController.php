@@ -1,7 +1,5 @@
 <?php
 
-// app/Http/Controllers/StatementOf PurposeController.php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,13 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class StatementOfPurposeController extends Controller
 {
+    // Show the Statement of Purpose form
     public function index()
-    {
-        $userId = Auth::id();
-        $statement = StatementOfPurpose::where('user_id', $userId)->first();
-        return view('statement-of-purpose', ['statement' => $statement]);
-    }
+{
+    $userId = Auth::id();
+    $statements = StatementOfPurpose::where('user_id', $userId)->get(); // Fetch all records
 
+    return view('statement-of-purpose', compact('statements'));
+}
+
+
+    
+
+    // Save or Update the Statement of Purpose
     public function update(Request $request)
     {
         $request->validate([
@@ -24,17 +28,11 @@ class StatementOfPurposeController extends Controller
         ]);
 
         $userId = Auth::id();
-        $statement = StatementOfPurpose::where('user_id', $userId)->first();
+        $statement = StatementOfPurpose::updateOrCreate(
+            ['user_id' => $userId], 
+            ['content' => $request->input('content')]
+        );
 
-        if (!$statement) {
-            $statement = new StatementOfPurpose();
-            $statement->user_id = $userId;
-        }
-
-        $statement->content = $request->input('content');
-        $statement->save();
-
-        return redirect()->route('statement-of-purpose')->with('success', 'Statement of Purpose updated successfully!');
+        return redirect(url('/statement-of-purpose'))->with('success', 'Statement of Purpose updated successfully!');
     }
 }
- 

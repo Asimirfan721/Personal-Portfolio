@@ -5,65 +5,83 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #121212; /* Black background for contrast */
-            color: #ffffff; /* White text for readability */
+            background-color: #121212;
+            color: #ffffff;
             font-family: 'Arial', sans-serif;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #1e1e1e; /* Dark gray for the form container */
+            background-color: #1e1e1e;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-            border: 1px solid #ff0000; /* Red border for emphasis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #ff0000;
         }
         h1 {
-            color: #ff0000; /* Red header for a bold look */
+            color: #ff0000;
             text-align: center;
             margin-bottom: 20px;
         }
         .btn-secondary {
-            background-color: #ff0000; /* Red for the home button */
+            background-color: #ff0000;
             border: none;
             color: #ffffff;
         }
         .btn-secondary:hover {
-            background-color: #cc0000; /* Darker red for hover effect */
+            background-color: #cc0000;
         }
         .form-label {
-            color: #ffffff; /* Ensure labels are readable */
+            color: #ffffff;
         }
         .form-control {
-            background-color: #2c2c2c; /* Dark input fields */
-            border: 1px solid #ff0000; /* Red border for input fields */
-            color: #ffffff; /* White text inside inputs */
+            background-color: #2c2c2c;
+            border: 1px solid #ff0000;
+            color: #ffffff;
         }
         .form-control::placeholder {
-            color: #cccccc; /* Lighter gray for placeholders */
+            color: #cccccc;
         }
         .form-control:focus {
             background-color: #2c2c2c;
             border-color: #ff0000;
             color: #ffffff;
-            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25); /* Subtle red glow */
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
         }
         .btn-primary {
-            background-color: #ff0000; /* Red save button */
+            background-color: #ff0000;
             border: none;
         }
         .btn-primary:hover {
-            background-color: #cc0000; /* Darker red hover effect */
+            background-color: #cc0000;
         }
         .alert-success {
-            background-color: #1e4620; /* Dark green for success */
+            background-color: #1e4620;
             border-color: #28a745;
             color: #ffffff;
         }
         .alert-danger {
-            background-color: #4a1e1e; /* Dark red for error alerts */
+            background-color: #4a1e1e;
             border-color: #ff0000;
             color: #ffffff;
+        }
+        .sop-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .sop-button {
+            padding: 10px 15px;
+            background: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .create-button {
+            background: green;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -90,15 +108,38 @@
             </div>
         @endif
 
-        <!-- Statement of Purpose Form -->
-        <form method="POST" action="{{ url('/statement-of-purpose') }}">
-            @csrf
-            <div class="mb-3">
-                <label for="content" class="form-label">Your Statement of Purpose</label>
-                <textarea name="content" id="content" class="form-control" rows="10" placeholder="Write your statement here...">{{ old('content', $statement->content ?? '') }}</textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Save Statement</button>
-        </form>
+        <!-- SOP Buttons -->
+        <div class="sop-buttons">
+            @foreach ($statements as $sop)
+            <a href="{{ route('statement-of-purpose', $sop->id) }}" class="sop-button">{{ $sop->title }}</a>
+        @endforeach
+        </div>
+
+        <!-- Create New SOP Button -->
+        <a href="{{ route('statement-of-purpose') }}" class="btn btn-primary w-100 mt-3">Create New SOP</a>
+
+        <!-- SOP Form (Only show when editing or creating) -->
+        @if(isset($sop))
+            <form method="POST" action="{{ route('statement-of-purpose', $sop->id) }}" class="mt-4">
+                @csrf
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{ $sop->title }}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Your Statement of Purpose</label>
+                    <textarea name="content" class="form-control" rows="10" placeholder="Write your statement here...">{{ $sop->content }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Update SOP</button>
+            </form>
+
+            <!-- Delete Button -->
+            <form method="POST" action="{{ route('statement-of-purpose', $sop->id) }}" class="mt-2">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger w-100">Delete SOP</button>
+            </form>
+        @endif
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

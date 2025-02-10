@@ -14,8 +14,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResumeController;
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return view('auth.register');
+})->name('register');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
