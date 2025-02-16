@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class StatementOfPurposeController extends Controller
 {
-    // Show all SOPs and form for create/update
+    
     public function index()
     {
         $userId = Auth::id();
