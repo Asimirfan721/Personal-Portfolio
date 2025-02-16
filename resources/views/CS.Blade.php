@@ -12,7 +12,7 @@
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 10px;   
         background-color: #111; /* Slightly lighter black for contrast */
         box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow effect */
     }

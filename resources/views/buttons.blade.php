@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #000; /* Black background */
+            background-color: #000; /* Black   background */
             color: #fff; /* White text */
         }
         .container {

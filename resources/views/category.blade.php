@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <h1>{{ ucfirst($category) }}</h1>
 
-        <!-- Your content specific to the category goes here -->
+        <!-- Your content specific to the category    goes here -->
         <p>Content for {{ ucfirst($category) }} will be displayed here.</p>
     </div>
 </body>

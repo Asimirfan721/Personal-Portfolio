@@ -15,7 +15,7 @@
         padding: 20px;
         border: 1px solid #444;
         border-radius: 10px;
-        background-color: #111; /* Slightly lighter black */
+        background-color: #111; /* Slightly lighter    black */
         box-shadow: 0px 0px 10px #222;
     }
     .header {

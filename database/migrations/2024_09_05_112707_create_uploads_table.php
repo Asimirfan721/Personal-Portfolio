@@ -12,8 +12,8 @@ class CreateUploadsTable extends Migration
             $table->id();
             $table->string('image_path');
             $table->string('description');
-            $table->string('category'); // Stores the category name (e. g., AI, CS, Certifications)
-            $table->timestamps();
+            $table->string('category'); 
+                 $table->timestamps();
         });
     }
 
