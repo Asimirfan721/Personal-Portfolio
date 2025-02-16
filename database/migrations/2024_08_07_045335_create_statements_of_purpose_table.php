@@ -23,11 +23,7 @@ class CreateStatementsOfPurposeTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('statements_of_purpose');
