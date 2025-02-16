@@ -1,4 +1,4 @@
-<!-- resources/views/personal-statement.blade.php -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,18 +10,18 @@
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Home Button -->
+        
         <div class="d-flex justify-content-between align-items-center">
             <h1>Personal Statement</h1>
             <a href="{{ url('/home') }}" class="btn btn-secondary">Home</a>
         </div>
 
-        <!-- Success Message -->
+       
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <!-- Category Selection -->
+        
         @if(isset($categories))
         <h3>Select Category</h3>
         <div class="mb-3">

@@ -10,8 +10,8 @@
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #444; /* Darker bborder */
-        border-radius: 10px;
-        background-color: #222222; /* Darker cvontainer background */
+        border-radius: 10px;  
+        background-color: #222222; /* Darker cvontainer    background */
     }
     .header {
         display: flex;
