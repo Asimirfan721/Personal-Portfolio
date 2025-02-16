@@ -45,7 +45,7 @@
             </div>
         </form>
 
-        <!-- Form to Write Personal Statement -->
+         
         <h3>Write Personal Statement</h3>
         <form method="POST" action="{{ route('personalStatement.update') }}">
             @csrf
