@@ -63,13 +63,21 @@ Route::post('/resume/upload', [ResumeController::class, 'upload'])->name('resume
 // ------------------------
 // Personal Statement Routes
 // ------------------------
-Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personalStatement.index');
-Route::post('/personal-statement', [PersonalStatementController::class, 'update']);
-Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
-Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
-Route::post('/personal-statement/update', [PersonalStatementController::class, 'update'])->name('personalStatement.update');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personalStatement.index');
+    Route::get('/personal-statement/create', [PersonalStatementController::class, 'create'])->name('personalStatement.create');
+    Route::post('/personal-statement/store', [PersonalStatementController::class, 'store'])->name('personalStatement.store');
+    Route::get('/personal-statement/{id}/edit', [PersonalStatementController::class, 'edit'])->name('personalStatement.edit');
+    Route::post('/personal-statement/{id}/update', [PersonalStatementController::class, 'update'])->name('personalStatement.update');
+    Route::delete('/personal-statement/{id}', [PersonalStatementController::class, 'destroy'])->name('personalStatement.destroy');
+    Route::get('/personal-statement/{categoryId}/edit', [PersonalStatementController::class, 'edit'])->name('personalStatement.edit');
 
+    // Category-specific routes
+    Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
+    Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
+});
 
+ 
 // ------------------------
 // Statement of Purpose Routes (Protected with Middleware)
 // ------------------------
