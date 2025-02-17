@@ -64,7 +64,7 @@
                     <input type="text" name="title" class="form-control" value="{{ $edit->title }}" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Your Statement of Purpose</label>
+                    <label class="form-label">Your Statement.. of Purpose</label>
                     <textarea name="content" class="form-control" rows="10" required>{{ $edit->content }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Update SOP</button>

@@ -23,16 +23,7 @@
 
         
         @if(isset($categories))
-        <h3>Select Category</h3>
-        <div class="mb-3">
-            <select name="category_id" id="category_id" class="form-control">
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                        {{ $category->name }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
+        
         @endif
 
         <!-- Option to Create New Category -->
