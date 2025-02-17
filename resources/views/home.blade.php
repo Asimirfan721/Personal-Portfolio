@@ -7,17 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #000; /* Black bacground */
-            color: #fff; /* Wite text */
+            background-color: #121212; /* Darker background */
+            color: #fff; /* White text for readability */
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        /* Navigaton Bar */
+        /* Navigation Bar */
         .navbar {
-            background-color: #111; /* Slightly lighter nblack */
-            border-bottom: 3px solid red; /* Red bordder below the navbar */
+            background-color: #1a1a1a; /* Darker navbar */
+            border-bottom: 3px solid #f44336; /* Red border for contrast */
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -39,22 +39,21 @@
         }
 
         .navbar .nav-link:hover {
-            color: red;
+            color: #f44336; /* Red hover effect */
         }
 
         .navbar .btn-danger {
             padding: 6px 12px;
             font-size: 14px;
             margin-left: auto;
+            background-color: #f44336; /* Button color */
+            border-color: #f44336;
         }
 
         /* Main Content */
         .container {
-
-            padding: 100px 20px 20px; /* Space to accoundt for the fixed navbar */
+            padding: 120px 20px 20px; /* Adjusted padding to account for fixed navbar */
             text-align: center;
-            padding: 100px 20px 20px; /* Space to account for the fixed navbar */
-
         }
 
         h1 {
@@ -64,38 +63,43 @@
         }
 
         .about-section {
-            background-color: #111; /* Slightly lidghter black for contrast */
+            background-color: #1a1a1a; /* Slightly lighter dark background */
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Subtle shadow for depth */
         }
 
         .about-section h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
-            border-bottom: 2px solid red; /* Redg underline */
+            border-bottom: 2px solid #f44336; /* Red underline */
             display: inline-block;
             padding-bottom: 5px;
         }
 
         .about-section p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #ccc; /* Light gray for better rrreadability */
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #bbb; /* Lighter text for better readability */
         }
-        /* Responsive Design */
+
+        /* Profile Image */
         .profile-image {
-            max-width: 100%; /* Responsive */
-            border-radius: 10px; /* Rounded corners */
+            max-width: 100%;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         .content {
             display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 30px;
+            flex-direction: column;
+            align-items: center;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -104,23 +108,21 @@
             .content {
                 flex-direction: column;
                 align-items: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+                gap: 20px;
             }
 
-            .content {
-                flex-direction: column;
-                align-items: center;
+            .about-section p {
+                font-size: 1rem; /* Slightly smaller text on mobile */
+            }
+
+            .profile-image {
+                width: 80%; /* Profile image scaling for smaller screens */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Barr -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Asim Irfan</a>
         <div class="d-flex">
@@ -141,7 +143,7 @@
         </div>
     </nav>
 
-    <!-- Main Content --->
+    <!-- Main Content -->
     <div class="container">
         <div class="content">
             <!-- Profile Image -->
@@ -149,14 +151,15 @@
                 <img src="{{ asset('images/your-image.jpg') }}" alt="Asim Irfan" class="profile-image">
             </div>
 
-        <!-- About Mee Section -->
-        <div class="about-section">
-            <h2>About Me</h2>
-            <p>
-                Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies. 
-                I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
-                I have experience in research and leadership, having published research papers and led multiple teams to success.
-            </p>
+            <!-- About Me Section -->
+            <div class="about-section">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies. 
+                    I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
+                    I have experience in research and leadership, having published research papers and led multiple teams to success.
+                </p>
+            </div>
         </div>
     </div>
 
