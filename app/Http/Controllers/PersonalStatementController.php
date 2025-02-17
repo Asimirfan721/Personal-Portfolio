@@ -7,7 +7,7 @@ use App\Models\PersonalStatement;
 use App\Models\PersonalStatementCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Log;
 class PersonalStatementController extends Controller
 {
     public function __construct()
@@ -51,17 +51,23 @@ class PersonalStatementController extends Controller
         return redirect()->route('personal-statement')->with('success', 'Personal Statement updated successfully!');
     }
 
-    // Create a new category
-    public function createCategory(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:personal_statement_categories,name',
-        ]);
+    
+public function createCategory(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255|unique:personal_statement_categories,name',
+    ]);
 
-        PersonalStatementCategory::create([
-            'name' => $request->input('name'),
-        ]);
+    $name = $request->input('name');
 
-        return redirect()->route('personal-statement')->with('success', 'New category created!');
-    }
+    // Debugging: Log the name to ensure it's being retrieved correctly
+    Log::info('Category name: ' . $name);
+
+    PersonalStatementCategory::create([
+        'name' => $name,
+    ]);
+
+    return redirect()->route('personal-statement')->with('success', 'New category created!');
+}
+
 }
