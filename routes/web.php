@@ -108,3 +108,4 @@ Route::post('/upload', [CourseraController::class, 'upload'])->name('upload');
 Route::get('/form', [CourseraController::class, 'uploadForm'])->name('form');
 Route::get('/Cyber', [CourseraController::class, 'CS'])->name('CS');
 Route::get('/General', [CourseraController::class, 'General'])->name('General'); 
+Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
