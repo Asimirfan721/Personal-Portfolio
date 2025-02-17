@@ -82,7 +82,7 @@ Route::middleware(['auth'])->group(function () {
 // Statement of Purpose Routes (Protected with Middleware)
 // ------------------------
 Route::middleware(['auth'])->group(function () {
-    Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose.index');
+    Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose');
     Route::get('/statement-of-purpose/create', [StatementOfPurposeController::class, 'create'])->name('statement-of-purpose.create');
     Route::post('/statement-of-purpose/store', [StatementOfPurposeController::class, 'store'])->name('statement-of-purpose.store');
     Route::get('/statement-of-purpose/{id}/edit', [StatementOfPurposeController::class, 'edit'])->name('statement-of-purpose.edit');
