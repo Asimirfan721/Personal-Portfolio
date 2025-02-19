@@ -78,17 +78,14 @@
     <div class="container mt-5">
         <h1>Personal Statement</h1>
 
-        <!-- Home Button -->
         <a href="{{ url('/home') }}" class="btn btn-secondary mb-3">Home</a>
 
-        <!-- Success Message -->
         @if(session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Display Validation Errors -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 @foreach ($errors->all() as $error)
@@ -97,17 +94,14 @@
             </div>
         @endif
 
-        <!-- Personal Statement Buttons -->
         <div class="sop-buttons">
             @foreach ($statements as $statement)
-            <a href="{{ route('personal-statement.edit', $statement->id) }}" class="sop-button">{{ $statement->title }}</a>
+                <a href="{{ route('personal-statement.edit', $statement->id) }}" class="sop-button">{{ $statement->title }}</a>
             @endforeach
         </div>
 
-        <!-- Create New Personal Statement Button -->
         <a href="{{ route('personalStatement.create') }}" class="btn btn-primary w-100 mt-3">Create New Personal Statement</a>
 
-        <!-- Personal Statement Form (Only show when editing or creating) -->
         @if(isset($statement))
             <form method="POST" action="{{ route('personal-statement.update', $statement->id) }}" class="mt-4">
                 @csrf
@@ -122,7 +116,6 @@
                 <button type="submit" class="btn btn-primary w-100">Update Personal Statement</button>
             </form>
 
-            <!-- Delete Button -->
             <form method="POST" action="{{ route('personal-statement.destroy', $statement->id) }}" class="mt-2">
                 @csrf
                 @method('DELETE')
