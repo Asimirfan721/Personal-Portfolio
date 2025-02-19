@@ -23,12 +23,12 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        .btn-secondary {
+        .btn-secondary, .btn-primary {
             background-color: #ff0000;
             border: none;
             color: #ffffff;
         }
-        .btn-secondary:hover {
+        .btn-secondary:hover, .btn-primary:hover {
             background-color: #cc0000;
         }
         .form-label {
@@ -47,13 +47,6 @@
             border-color: #ff0000;
             color: #ffffff;
             box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
-        }
-        .btn-primary {
-            background-color: #ff0000;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-color: #cc0000;
         }
         .alert-success {
             background-color: #1e4620;
@@ -78,10 +71,6 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
-        }
-        .create-button {
-            background: green;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -108,36 +97,23 @@
             </div>
         @endif
 
-        <!-- Personal Statement Categories -->
+        <!-- Personal Statement Buttons -->
         <div class="sop-buttons">
-            @foreach ($categories as $category)
-            <a href="{{ route('personalStatement.edit', $category->id) }}" class="sop-button">{{ $category->name }}</a>
+            @foreach ($statements as $statement)
+            <a href="{{ route('personal-statement.edit', $statement->id) }}" class="sop-button">{{ $statement->title }}</a>
             @endforeach
         </div>
 
-        <!-- Create New Category Button -->
-        <form action="{{ route('personalStatement.createCategory') }}" method="POST" class="mt-3">
-            @csrf
-            <div class="input-group mb-3">
-                <input type="text" name="name" class="form-control" placeholder="New Category Name" required>
-                <button class="btn btn-success" type="submit">Create Category</button>
-            </div>
-        </form>
+        <!-- Create New Personal Statement Button -->
+        <a href="{{ route('personalStatement.create') }}" class="btn btn-primary w-100 mt-3">Create New Personal Statement</a>
 
         <!-- Personal Statement Form (Only show when editing or creating) -->
         @if(isset($statement))
-            <form method="POST" action="{{ route('personalStatement.update', $statement->id) }}" class="mt-4">
+            <form method="POST" action="{{ route('personal-statement.update', $statement->id) }}" class="mt-4">
                 @csrf
                 <div class="mb-3">
-                    <label class="form-label">Category</label>
-                    <select name="category_id" class="form-control" required>
-                        <option value="">Select Category</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ ($statement->category_id == $category->id) ? 'selected' : '' }}>
-                                {{ $category->name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{ $statement->title }}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Your Personal Statement</label>
@@ -147,7 +123,7 @@
             </form>
 
             <!-- Delete Button -->
-            <form method="POST" action="{{ route('personalStatement.destroy', $statement->id) }}" class="mt-2">
+            <form method="POST" action="{{ route('personal-statement.destroy', $statement->id) }}" class="mt-2">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger w-100">Delete Personal Statement</button>

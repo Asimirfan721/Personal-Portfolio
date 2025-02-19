@@ -1,95 +1,60 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\Models\PersonalStatement;
-use App\Models\PersonalStatementCategory;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use App\Models\PersonalStatement;
 
 class PersonalStatementController extends Controller
-{   
-    // Ensure only authenticated users can access these methods
-    public function __construct()
-    {
-      //  $this->middleware('auth');
-    }
-
-    // Display categories and existing statements (if any)
+{
     public function index()
     {
-        $userId = Auth::id();
-        $categories = PersonalStatementCategory::all();  // Retrieve all categories
-        $statement = PersonalStatement::where('user_id', $userId)->first();  // Retrieve user's first statement (if any)
-
-        return view('personal-statement', compact('categories', 'statement'));
+        $statements = PersonalStatement::all();
+        return view('personal_statements.index', compact('statements'));
     }
 
-    // Store or update the personal statement
-    public function update(Request $request)
+    public function create()
+    {
+        return view('personal_statements.create');
+    }
+
+    public function store(Request $request)
     {
         $request->validate([
+            'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'category_id' => 'required|exists:personal_statement_categories,id',
         ]);
 
-        $userId = Auth::id();
-        $categoryId = $request->input('category_id');
+        PersonalStatement::create($request->all());
 
-        // Use updateOrCreate to simplify the logic
-        PersonalStatement::updateOrCreate(
-            [
-                'user_id' => $userId,
-                'category_id' => $categoryId,
-            ],
-            [
-                'content' => $request->input('content'),
-            ]
-        );
-
-        return redirect()->route('personalStatement.index')->with('success', 'Personal Statement updated successfully!');
+        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement created successfully.');
     }
 
-    // Create new category
-    public function createCategory(Request $request)
+    public function show(PersonalStatement $personalStatement)
+    {
+        return view('personal_statements.show', compact('personalStatement'));
+    }
+
+    public function edit(PersonalStatement $personalStatement)
+    {
+        return view('personal_statements.edit', compact('personalStatement'));
+    }
+
+    public function update(Request $request, PersonalStatement $personalStatement)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:personal_statement_categories,name',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
         ]);
 
-        $name = $request->input('name');
+        $personalStatement->update($request->all());
 
-        // Log category creation for debugging
-        Log::info('Category name: ' . $name);
-
-        PersonalStatementCategory::create([
-            'name' => $name,
-        ]);
-
-        return redirect()->route('personalStatement.index')->with('success', 'New category created!');
+        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement updated successfully.');
     }
 
-    // Optional: Delete personal statement
-    public function destroy($id)
+    public function destroy(PersonalStatement $personalStatement)
     {
-        $userId = Auth::id();
-        $statement = PersonalStatement::where('id', $id)->where('user_id', $userId)->firstOrFail();
-        $statement->delete();
-
-        return redirect()->route('personalStatement.index')->with('success', 'Personal Statement deleted successfully!');
+        $personalStatement->delete();
+        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement deleted successfully.');
     }
-    // Show edit form for the selected personal statement based on category
-public function edit($categoryId)
-{
-    $userId = Auth::id();
-    $categories = PersonalStatementCategory::all();  // Retrieve all categories
-    $statement = PersonalStatement::where('user_id', $userId)->where('category_id', $categoryId)->first();  // Retrieve statement for selected category
-
-    if (!$statement) {
-        return redirect()->route('personalStatement.index')->with('error', 'Personal Statement not found for this category!');
-    }
-
-    return view('personal-statement', compact('categories', 'statement', 'categoryId'));
 }
-
-}
-

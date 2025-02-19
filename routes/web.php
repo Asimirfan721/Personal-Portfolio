@@ -72,17 +72,21 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/personal-statement/{id}', [PersonalStatementController::class, 'destroy'])->name('personalStatement.destroy');
     Route::get('/personal-statement/{categoryId}/edit', [PersonalStatementController::class, 'edit'])->name('personalStatement.edit');
 
+    Route::resource('personal_statements', PersonalStatementController::class);
     // Category-specific routes
     Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
     Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
 });
+
+
 
  
 // ------------------------
 // Statement of Purpose Routes (Protected with Middleware)
 // ------------------------
 Route::middleware(['auth'])->group(function () {
-    Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose');
+    Route::get('/statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose.index');
+    Route::get('/Statement-of-purpose', [StatementOfPurposeController::class, 'index'])->name('statement-of-purpose');
     Route::get('/statement-of-purpose/create', [StatementOfPurposeController::class, 'create'])->name('statement-of-purpose.create');
     Route::post('/statement-of-purpose/store', [StatementOfPurposeController::class, 'store'])->name('statement-of-purpose.store');
     Route::get('/statement-of-purpose/{id}/edit', [StatementOfPurposeController::class, 'edit'])->name('statement-of-purpose.edit');
