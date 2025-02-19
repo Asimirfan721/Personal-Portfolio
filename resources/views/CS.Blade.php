@@ -173,7 +173,8 @@
             @foreach ($uploads as $index => $upload)
                 <div class="uploaded-file-item">
                     <div class="sequence-number">#{{ $index + 1 }}</div>
-                    <img src="{{ asset($upload->image_path) }}" alt="Uploaded Image">
+                    <img src="{{ url($upload->image_path) }}" alt="Uploaded Image">
+
                     <p>{{ $upload->description }}</p>
                 </div>
             @endforeach

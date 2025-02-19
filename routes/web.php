@@ -110,6 +110,6 @@ Route::get('/form1', [CourseraController::class, 'uploadForm'])->name('form');
 Route::get('/form', [CourseraController::class, 'uploadForm'])->name('CS');
 Route::get('/Cyber1', [CourseraController::class, 'uploadForm'])->name('coursera.ai');
 Route::get('/Cyber', [CourseraController::class, 'CS'])->name('coursera.cs');
-Route::get('/General', [CourseraController::class, 'General'])->name('coursera.General'); 
+Route::get('/General', [CourseraController::class, 'General'])->name('coursera.general'); 
 Route::get('/General1', [CourseraController::class, 'General'])->name('General'); 
 Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
