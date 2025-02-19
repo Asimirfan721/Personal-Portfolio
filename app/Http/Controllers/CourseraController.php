@@ -24,35 +24,45 @@ class CourseraController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function upload(Request $request)
-    {
-        // Validate the incoming request data
-        $request->validate([
-            'description' => 'required|string|max:255',
-            'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
-            'category' => 'required|string|in:AI,CS,General', // Validate the category
-        ]);
-    
-        // Check if file is uploaded
-        if ($request->hasFile('file')) {
-            // Generate a unique file name
-            $fileName = time() . '_' . $request->file('file')->getClientOriginalName();
-    
-            // Store the file in the 'uploads' directory in public storage
-            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-    
-            // Save the upload information in the database
-            $upload = new Upload();
-            $upload->description = $request->input('description');
-            $upload->image_path = '/storage/uploads/' . $fileName; // Correct path for public storage
-            $upload->category = $request->input('category');
-            $upload->save();
-    
-            return redirect()->route('coursera.category', ['category' => $request->input('category')])->with('success', 'File uploaded successfully!');
+{
+    // Validate the incoming request data
+    $request->validate([
+        'description' => 'required|string|max:255',
+        'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
+        'category' => 'required|string|in:AI,CS,General', // Validate the category
+    ]);
+
+    // Check if file is uploaded
+    if ($request->hasFile('file')) {
+        // Generate a unique file name
+        $fileName = time() . '_' . $request->file('file')->getClientOriginalName();
+
+        // Store the file in the 'uploads' directory in public storage
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
+        // Save the upload information in the database
+        $upload = new Upload();
+        $upload->description = $request->input('description');
+        $upload->image_path = '/storage/uploads/' . $fileName; // Correct path for public storage
+        $upload->category = $request->input('category');
+        $upload->save();
+
+        // Redirect to the correct category view
+        $category = $request->input('category');
+
+        if ($category === 'AI') {
+            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!');
+        } elseif ($category === 'CS') {
+            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!');
+        } else {
+            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!');
         }
-    
-        // Return an error message if file upload fails
-        return redirect()->back()->with('error', 'File upload failed.');
     }
+
+    // Return an error message if file upload fails
+    return redirect()->back()->with('error', 'File upload failed.');
+}
+
      /**
      * Show uploads for the 'AI' category.
      *
