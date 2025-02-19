@@ -130,7 +130,7 @@
             <a class="nav-link" href="{{ route('linkedin') }}">LinkedIn</a>
             <a class="nav-link" href="{{ route('github') }}">GitHub</a>
             <a class="nav-link" href="{{ route('researchgate') }}">ResearchGate</a>
-            <a class="nav-link" href="{{ route('coursera.showButtons') }}">Coursera</a>
+            <a class="nav-link" href="{{ route('coursera.showButtons') }}">Certifications</a>
             <a class="nav-link" href="{{ route('personalStatement.index') }}">Personal Statement</a>
             <a class="nav-link" href="{{ route('statement-of-purpose') }}">Statement of Purpose</a>
             <a class="nav-link" href="{{ route('Calculation') }}">Calculation</a>
