@@ -132,7 +132,8 @@
     <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data" class="upload-form">
         @csrf
 
-        <input type="hidden" name="category" value="CS"> <!-- Pass CS category -->
+        <input type="hidden" name="category" value="General"> <!-- Pass General category -->
+
 
         <div>
             <label for="file">Choose a file:</label>
