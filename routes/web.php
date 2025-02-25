@@ -64,18 +64,18 @@ Route::post('/resume/upload', [ResumeController::class, 'upload'])->name('resume
 // Personal Statement Routes
 // ------------------------
 Route::middleware(['auth'])->group(function () {
-    Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personalStatement.index');
-    Route::get('/personal-statement/create', [PersonalStatementController::class, 'create'])->name('personalStatement.create');
-    Route::post('/personal-statement/store', [PersonalStatementController::class, 'store'])->name('personalStatement.store');
-    Route::get('/personal-statement/{id}/edit', [PersonalStatementController::class, 'edit'])->name('personalStatement.edit');
-    Route::post('/personal-statement/{id}/update', [PersonalStatementController::class, 'update'])->name('personalStatement.update');
-    Route::delete('/personal-statement/{id}', [PersonalStatementController::class, 'destroy'])->name('personalStatement.destroy');
-    Route::get('/personal-statement/{categoryId}/edit', [PersonalStatementController::class, 'edit'])->name('personalStatement.edit');
+    Route::get('/personal-statement', [PersonalStatementController::class, 'index'])->name('personal-statement.index');
+    Route::get('/personal-statement/create', [PersonalStatementController::class, 'create'])->name('personal-statement.create');
+    Route::post('/personal-statement/store', [PersonalStatementController::class, 'store'])->name('personal-statement.store');
+    Route::get('/personal-statement/{id}/edit', [PersonalStatementController::class, 'edit'])->name('personal-statement.edit');
+    Route::post('/personal-statement/{id}/update', [PersonalStatementController::class, 'update'])->name('personal-statement.update');
+    Route::delete('/personal-statement/{id}', [PersonalStatementController::class, 'destroy'])->name('personal-statement.destroy');
+    Route::get('/personal-statement/{categoryId}/edit', [PersonalStatementController::class, 'edit'])->name('personal-statement.edit');
 
-    Route::resource('personal_statements', PersonalStatementController::class);
+    Route::resource('personal-statement', PersonalStatementController::class);
     // Category-specific routes
-    Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personalStatement.createCategory');
-    Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personalStatement.show');
+    Route::post('/personal-statement/create-category', [PersonalStatementController::class, 'createCategory'])->name('personal-statement.createCategory');
+    Route::get('/personal-statement/{categoryId}', [PersonalStatementController::class, 'show'])->name('personal-statement.show');
 });
 
 

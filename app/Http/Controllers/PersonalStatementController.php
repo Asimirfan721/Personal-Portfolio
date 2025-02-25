@@ -10,12 +10,12 @@ class PersonalStatementController extends Controller
     public function index()
     {
         $statements = PersonalStatement::all();
-        return view('personal_statements.index', compact('statements'));
+        return view('personal-statement', compact('statements'));
     }
 
     public function create()
     {
-        return view('personal_statements.create');
+        return view('personal-statement');
     }
 
     public function store(Request $request)
@@ -25,19 +25,22 @@ class PersonalStatementController extends Controller
             'content' => 'required|string',
         ]);
 
-        PersonalStatement::create($request->all());
+        PersonalStatement::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+        ]);
 
-        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement created successfully.');
+        return redirect()->route('personal-statement.index')->with('success', 'Personal Statement created successfully.');
     }
 
     public function show(PersonalStatement $personalStatement)
     {
-        return view('personal_statements.show', compact('personalStatement'));
+        return view('personal-statement.show', compact('personalStatement'));
     }
 
     public function edit(PersonalStatement $personalStatement)
     {
-        return view('personal_statements.edit', compact('personalStatement'));
+        return view('personal-statement.edit', compact('personalStatement'));
     }
 
     public function update(Request $request, PersonalStatement $personalStatement)
@@ -47,14 +50,17 @@ class PersonalStatementController extends Controller
             'content' => 'required|string',
         ]);
 
-        $personalStatement->update($request->all());
+        $personalStatement->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+        ]);
 
-        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement updated successfully.');
+        return redirect()->route('personal-statement.index')->with('success', 'Personal Statement updated successfully.');
     }
 
     public function destroy(PersonalStatement $personalStatement)
     {
         $personalStatement->delete();
-        return redirect()->route('personal_statements.index')->with('success', 'Personal Statement deleted successfully.');
+        return redirect()->route('personal-statement.index')->with('success', 'Personal Statement deleted successfully.');
     }
 }
