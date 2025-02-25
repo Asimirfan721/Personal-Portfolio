@@ -8,9 +8,10 @@ use App\Models\PersonalStatement;
 class PersonalStatementController extends Controller
 {
     public function index()
-    {
-        $statements = PersonalStatement::all();
-        return view('personal-statement', compact('statements'));
+{
+    $statements = PersonalStatement::all(); // Using the PersonalStatement model
+    return view('personal-statement', compact('statements'));
+
     }
 
     public function create()
