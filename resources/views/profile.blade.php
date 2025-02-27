@@ -114,7 +114,7 @@
                 <div class="mb-3">
                     <label for="file" class="form-label">Upload Profile Image</label>
                     <input type="file" name="file" id="file" class="form-control" accept="image/*">
-                </div>
+                  </div>
                 <button type="submit" class="btn btn-success">Upload</button>
             </form>
 

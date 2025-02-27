@@ -37,8 +37,7 @@
             @foreach ($statements as $sop)
                 <a href="{{ route('statement-of-purpose.edit', $sop->id) }}" class="sop-button">{{ $sop->title }}</a>
             @endforeach
-        </div>
-
+        </div>    
         <a href="{{ route('statement-of-purpose.create') }}" class="btn btn-primary w-100 mt-3">Create New SOP</a>
 
         @if(isset($create))

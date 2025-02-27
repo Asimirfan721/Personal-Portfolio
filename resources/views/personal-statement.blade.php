@@ -47,7 +47,7 @@
             border-color: #ff0000;
             color: #ffffff;
             box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
-        }
+        }  
         .alert-success {
             background-color: #1e4620;
             border-color: #28a745;
