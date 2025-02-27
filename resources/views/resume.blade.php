@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
 @section('content')
 <div class="container mt-5">
     <h1 class="mb-4">Upload Your Resume</h1>
