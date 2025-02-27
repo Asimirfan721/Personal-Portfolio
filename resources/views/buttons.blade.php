@@ -81,7 +81,7 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <h1>Coursera Categories</h1>
+            <h1>Certifications</h1>
         </div>
 
         <!-- Home Button -->
@@ -90,8 +90,8 @@
         <!-- Category Selection Section -->
         <div class="category-card">
             <h2>Select a Category</h2>
-            <a href="{{ route('form') }}" class="btn">AI</a>
-            <a href="{{ route('CS') }}" class="btn">CS</a>
+            <a href="{{ route('form') }}" class="btn">Coursera</a>
+            <a href="{{ route('CS') }}" class="btn">Recommendations</a>
             <a href="{{ route('General') }}" class="btn">General</a>
         </div>
     </div>
