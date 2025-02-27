@@ -117,3 +117,5 @@ Route::get('/Cyber', [CourseraController::class, 'CS'])->name('coursera.cs');
 Route::get('/General', [CourseraController::class, 'General'])->name('coursera.general'); 
 Route::get('/General1', [CourseraController::class, 'General'])->name('General'); 
 Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
+ //There is an issue the uploaded image is visible on both coursera and recommendations
+ 
