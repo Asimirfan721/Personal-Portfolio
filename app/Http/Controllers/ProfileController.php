@@ -24,7 +24,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the profile of the authenticated user.
+     * Update the profile of the authenticated   user.
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
