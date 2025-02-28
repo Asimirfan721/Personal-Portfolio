@@ -158,9 +158,8 @@
             @foreach ($uploads as $index => $upload)
                 <div class="uploaded-file-item">
                     <div class="sequence-number">#{{ $index + 1 }}
-                        </div><img src="{{ url($upload->image_path) }}" alt="Uploaded Image">
-
-
+                        </div>
+                        <img src="{{ file_exists(public_path('storage/' . $upload->image_path)) ? url('storage/' . $upload->image_path) : url($upload->image_path) }}" alt="Uploaded Image">
                     <p>{{ $upload->description }}</p>
                 </div>
             @endforeach

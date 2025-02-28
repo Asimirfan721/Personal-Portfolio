@@ -131,6 +131,8 @@
     <!-- Home Button at the Top -->
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
+     </div>
+    <div class="header">
         <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
     </div>
 
@@ -145,7 +147,7 @@
         <div class="error">
             {{ session('error') }}
         </div>
-    @endif
+    @endif 
 
     <!-- Upload Form -->
     <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data" class="upload-form">

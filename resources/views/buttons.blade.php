@@ -67,7 +67,7 @@
             color: #fff; /* White text */
             background-color: #000; /* Black button */
             border: 2px solid #e60000; /* Red border */
-            border-radius: 10px;
+            border-radius: 10px; 
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .btn:hover {

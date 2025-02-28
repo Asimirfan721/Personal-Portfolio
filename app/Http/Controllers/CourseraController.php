@@ -52,14 +52,14 @@ class CourseraController extends Controller
 
         if ($category === 'AI') {
             return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!');
-        } elseif ($category === 'CS') {
+        } else if ($category === 'CS') {
             return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!');
         } else {
             return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!');
         }
     }
 
-    // Return an error message i  f file upload fails
+    // Return an error message if file upload fails
     return redirect()->back()->with('error', 'File upload failed.');
 }
 
