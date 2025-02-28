@@ -106,7 +106,7 @@
         margin-bottom: 10px;
         color: #ff0000; /* Red for sequence numbers */
     }
-</style>
+</style> 
 
 <div class="container">
     <!-- Home Button -->
