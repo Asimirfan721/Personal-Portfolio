@@ -107,6 +107,5 @@ class CourseraController extends Controller
     
     // Return the correct view with the uploads
     return view('category', compact('uploads', 'category'));
-}
-
+} 
 }

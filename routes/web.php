@@ -123,6 +123,6 @@ Route::get('/coursera/category/{category}', [CourseraController::class, 'showCat
 
 
  //Image upload
- Route::post('/upload/{category}', [UploadController::class, 'upload'])->name('coursera.upload');
+ Route::post('/upload/{category}', [ImageController::class, 'upload'])->name('coursera.upload');
 Route::get('/upload2', [ImageController::class, 'uploadForm'])->name('upload.form');
 Route::post('/upload3', [ImageController::class, 'uploadImage'])->name('image.upload');
