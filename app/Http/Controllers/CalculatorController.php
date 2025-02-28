@@ -49,7 +49,7 @@ class CalculatorController extends Controller
                 ->withInput();
         }
 
-        // Return the result to the view
+        // Return  the result to the view
         return view('calculation', compact('result', 'number1', 'number2', 'operation'));
     }
 

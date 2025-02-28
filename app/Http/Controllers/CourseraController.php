@@ -10,7 +10,7 @@ class CourseraController extends Controller
     /**
      * Show the main butt view.
      *
-     * @return \Illuminate\View\View
+     * @return \Il  luminate\View\View
      */
     public function showButtons()
     {

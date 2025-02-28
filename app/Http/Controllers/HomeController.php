@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/HomeController
+// app/Http/Controllers/HomeControl ler
 
 namespace App\Http\Controllers;
 

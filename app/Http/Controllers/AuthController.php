@@ -108,7 +108,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Validate the  
+     * Validate  the  
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

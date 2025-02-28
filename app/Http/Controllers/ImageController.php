@@ -7,7 +7,7 @@ use App\Models\Image;
 class ImageController extends Controller
 {
     public function uploadForm()
-{
+{  
     $images = Image::all();
     return view('upload', compact('images'));
 }
