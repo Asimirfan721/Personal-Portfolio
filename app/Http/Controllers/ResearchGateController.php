@@ -12,7 +12,7 @@ class ResearchGateController extends Controller
     {
         
         $researchGateUrl = 'https://www.researchgate.net/profile/Asim-Irfan';
- 
+ // let's add something in this profile 
         return redirect()->away($researchGateUrl);
     }
 }

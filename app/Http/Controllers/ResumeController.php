@@ -22,7 +22,7 @@ class ResumeController extends Controller
             'description' => 'required|string|max:255',
         ]);
 
-         
+         //why the hell should i distrub them
         $path = $request->file('file')->store('resume', 'public');
 
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);

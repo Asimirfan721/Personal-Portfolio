@@ -8,7 +8,7 @@ class LinkedInController extends Controller
 {
     public function index() 
     { 
-        // Replace the URL   below act l LinkedIn profile URL
+        // Replace the URL   below act linkedIn profile URL
         $linkedinUrl = 'https://www.linkedin.com/in/asim-irfan-aa49a31a1/';
 
         return redirect()->away($linkedinUrl); 

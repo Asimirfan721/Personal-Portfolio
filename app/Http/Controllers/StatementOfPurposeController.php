@@ -39,7 +39,7 @@ class StatementOfPurposeController extends Controller
 
     // Create a new statement of purpose and store it in the database
     $statement = new StatementOfPurpose();
-    $statement->title = $request->input('title'); // Ensure title is saved
+    $statement->title = $request->input('title'); // Ensure title is saved   
     $statement->content = $request->input('content');
     $statement->user_id = Auth::id(); // Associate the user with the SOP
     $statement->save();

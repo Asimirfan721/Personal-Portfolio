@@ -49,7 +49,7 @@ class ProfileController extends Controller
         // Update the user's profile information
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        // Update other fields as necessary
+        // Update other fields as   necessary
         $user->save();
 
         // Redirect back to the profile page with a success message
