@@ -85,7 +85,7 @@
         .result h2 {
             margin: 0;
         }
-    </style>
+    </style> 
 </head>
 <body>
 

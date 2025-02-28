@@ -104,7 +104,7 @@
     }
 
     .uploaded-files img:hover {
-        transform: scale(1.2); /* Zoom effect on hover */
+        transform: scale(1.2); /* Zoom effe ct on hover */
         box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow */
     }
 

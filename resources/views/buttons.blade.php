@@ -87,7 +87,7 @@
         <!-- Home Button -->
         <a href="{{ url('/home') }}" class="btn-home">🏠 Home</a>
 
-        <!-- Category Selection Section -->
+        <!-- Category Selection Sect ion -->
         <div class="category-card">
             <h2>Select a Category</h2>
             <a href="{{ route('form') }}" class="btn">Coursera</a>

@@ -115,7 +115,7 @@
             @endforeach
             </div>
 
-            <!-- Create New SOP Button -->
+            <!-- Create New SOP    ad Button -->
             <a href="{{ route('statement-of-purpose.create') }}" class="btn btn-primary w-100 mt-3">Create New SOP</a>
 
             <!-- SOP Form (Only show when editing or creating) -->

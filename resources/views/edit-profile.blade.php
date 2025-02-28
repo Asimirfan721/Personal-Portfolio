@@ -70,7 +70,7 @@
 
         
         <form method="POST" action="{{ route('profile/update') }}" enctype="multipart/form-data" class="edit">
-            @csrf
+            @csrf 
             @method('PUT') <!-- Using PUT for updating resources -->
             
             <div class="form-group">
