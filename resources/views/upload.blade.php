@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ ucfirst($category) }} Upload</title>
+    <title>{{ isset($category) ? ucfirst($category) . ' Upload' : 'Upload' }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
         <a href="{{ ('/home') }}" class="btn btn-secondary">Home</a>
-        <h1>Upload {{ ucfirst($category) }} File</h1>
+        <h1>Upload {{ isset($category) ? ucfirst($category) : 'Default' }} File</h1>
         
 
         <!-- Upload Form -->
-        <form method="POST" action="{{ route('coursera.upload', ['category' => $category]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('coursera.upload', ['category' => isset($category) ? $category : 'default']) }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="file" class="form-label">Upload Image or PDF</label>

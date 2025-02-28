@@ -12,6 +12,7 @@ use App\Http\Controllers\PersonalStatementController;
 use App\Http\Controllers\StatementOfPurposeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\ImageController;
 
 // ------------------------
 // Authentication Routes
@@ -119,3 +120,9 @@ Route::get('/General1', [CourseraController::class, 'General'])->name('General')
 Route::get('/coursera/category/{category}', [CourseraController::class, 'showCategory'])->name('coursera.category');
  //There is an issue the uploaded image is visible on both coursera and recommendations
  
+
+
+ //Image upload
+ Route::post('/upload/{category}', [UploadController::class, 'upload'])->name('coursera.upload');
+Route::get('/upload2', [ImageController::class, 'uploadForm'])->name('upload.form');
+Route::post('/upload3', [ImageController::class, 'uploadImage'])->name('image.upload');

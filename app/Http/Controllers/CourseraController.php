@@ -59,7 +59,7 @@ class CourseraController extends Controller
         }
     }
 
-    // Return an error message if file upload fails
+    // Return an error message i f file upload fails
     return redirect()->back()->with('error', 'File upload failed.');
 }
 
