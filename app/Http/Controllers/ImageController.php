@@ -19,7 +19,7 @@ class ImageController extends Controller
             $imageName = time() . '.' . $request->image->extension();
             $request->image->storeAs('uploads', $imageName, 'public');
 
-            // Save to Database
+            // Save to Database in localhostphp my admin
             Image::create(['image_path' => 'storage/uploads/' . $imageName]);
 
             return redirect()->back()->with('success', 'Image Uploaded Successfully!');

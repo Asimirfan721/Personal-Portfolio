@@ -9,7 +9,7 @@ class GitHubController extends Controller
 {
     public function index()
     {  
-        // Fetch GitHu  b   URLfrom the environment file
+        // Fetch GitHu  b   URLfrom the environment file direct connects to 
         $githubUrl = config('services.github.url', 'https://github.com/Asimirfan721');
 
         return redirect()->away($githubUrl);

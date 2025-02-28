@@ -9,7 +9,7 @@ class PersonalStatementController extends Controller
 {
     public function index()
 {
-    $statements = PersonalStatement::all(); // Using the PersonalStatement model
+    $statements = PersonalStatement::all(); // Using the PersonalStatement model to fetch all personal statements from the database
     return view('personal-statement', compact('statements'));
 
     }

@@ -18,7 +18,7 @@ class CourseraController extends Controller
     }
 
     /**
-     * Handle file upload for a specific category.
+     * Handle file upload for a specific category. category handeling
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse

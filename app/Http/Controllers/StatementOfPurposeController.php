@@ -37,7 +37,7 @@ class StatementOfPurposeController extends Controller
         'content' => 'required|string',
     ]);
 
-    // Create a new statement of purpose and store it in the database
+    // Create a new statement of purpose and store it in the database ok
     $statement = new StatementOfPurpose();
     $statement->title = $request->input('title'); // Ensure title is saved   
     $statement->content = $request->input('content');

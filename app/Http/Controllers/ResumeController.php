@@ -16,7 +16,7 @@ class ResumeController extends Controller
     } 
 
     public function upload(Request $request)
-    {
+    {   // Validate the request 
         $request->validate([
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
             'description' => 'required|string|max:255',
