@@ -37,7 +37,7 @@ public function upload(Request $request)
         $upload->category = $request->input('category');
         $upload->save();
 
-        // Redirect to the correct category view
+        // Redirect to the correct category view  
         $category = $request->input('category');
 
         if ($category === 'AI') {

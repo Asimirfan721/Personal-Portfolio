@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class StatementOfPurposeController extends Controller
 {
      
-    public function index()
+    public function index()    
     {
         $userId = Auth::id();
         $statements = StatementOfPurpose::where('user_id', $userId)->get();

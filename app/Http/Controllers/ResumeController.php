@@ -21,7 +21,7 @@ class ResumeController extends Controller
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
             'description' => 'required|string|max:255',
         ]);
-
+   
          //why the hell should i distrub them
         $path = $request->file('file')->store('resume', 'public');
 
