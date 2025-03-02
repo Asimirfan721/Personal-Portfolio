@@ -8,9 +8,9 @@ use App\Models\Upload;
 class CourseraController extends Controller
 {
     /**
-     * Show the main butt view.
+     * Show the main buttons view.
      *
-     * @return \Il  luminate\View\View
+     * @return \Illuminate\View\View
      */
     public function showButtons()
     {
@@ -18,12 +18,12 @@ class CourseraController extends Controller
     }
 
     /**
-     * Handle file upload for a specific category. category handeling
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function upload(Request $request)
+ * Handle file upload for a specific category.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\RedirectResponse
+ */
+public function upload(Request $request)
 {
     // Validate the incoming request data
     $request->validate([
@@ -59,7 +59,7 @@ class CourseraController extends Controller
         }
     }
 
-    // Return an error message i f file upload fails
+    // Return an error message if file upload fails
     return redirect()->back()->with('error', 'File upload failed.');
 }
 
