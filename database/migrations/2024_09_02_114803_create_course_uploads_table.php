@@ -3,14 +3,14 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+   
 class CreateCourseUploadsTable extends Migration
 {
     /**   
-     * Run the mi grations.
+     * Run the mi grations  .
      *
      * @return void
-     */
+     */   
     public function up()
     {
         Schema::create('course_uploads', function (Blueprint $table) {
@@ -22,7 +22,7 @@ class CreateCourseUploadsTable extends Migration
         });
     }
 
-    /**
+    /**   
      * Reverse the migrations.
      *
      * @return void
