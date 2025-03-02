@@ -7,22 +7,12 @@ use App\Models\Upload;
  
 class CourseraController extends Controller
 {
-    /**
-     * Show the main buttons view.
-     *
-     * @return \Illuminate\View\View
-     */
+    
     public function showButtons()
     {
         return view('buttons');
     }
-
-    /**
- * Handle file upload for a specific category.
- *
- * @param  \Illuminate\Http\Request  $request
- * @return \Illuminate\Http\RedirectResponse
- */
+ 
 public function upload(Request $request)
 {
     // Validate the incoming request data
