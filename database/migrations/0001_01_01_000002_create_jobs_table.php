@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('total_jobs');
             $table->integer('pending_jobs');
             $table->integer('failed_jobs');
-            $table->longText('failed_job_ids');
+            $table->longText('failed_job_ids');  
             $table->mediumText('options')->nullable();
             $table->integer('cancelled_at')->nullable();
             $table->integer('created_at');
@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->text('connection');
             $table->text('queue');
-            $table->longText('payload');
+            $table->longText('payload');   
             $table->longText('exception');
             $table->timestamp('failed_at')->useCurrent();
         });
