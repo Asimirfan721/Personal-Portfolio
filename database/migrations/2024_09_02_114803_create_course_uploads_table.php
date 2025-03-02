@@ -21,7 +21,7 @@ class CreateCourseUploadsTable extends Migration
             $table->timestamps();
         });
     }
-
+   
     /**   
      * Reverse the migrations.
      *
