@@ -169,7 +169,7 @@
     </form>
 
     <!-- Uploaded Files Section -->
-    @if(isset($uploads) && count($uploads) > 0)
+    @if(isset($uploads) && count($uploads) > 0)   
         <h3>Uploaded Files</h3>
         <div class="uploaded-files">
             @foreach ($uploads as $index => $upload)
