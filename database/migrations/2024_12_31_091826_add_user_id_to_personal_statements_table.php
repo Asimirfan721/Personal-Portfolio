@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('personal_statement_categories')->onDelete('cascade');
         });
     }
-    
+      
     public function down()
     {
         Schema::table('personal_statements', function (Blueprint $table) {
