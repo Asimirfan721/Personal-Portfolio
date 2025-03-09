@@ -56,10 +56,10 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        font-weight: bold;
+        font-weight: bold; 
     }
     button[type="submit"]:hover {
-        background-color: #218838; /* Darker green on hover */
+        background-color: #218830; /* Darker green on hover */
     }
     .message {
         font-size: 1.2em;
@@ -71,7 +71,7 @@
     .error {
         font-size: 1.2em;
         font-weight: bold;
-        color: #dc3545; /* Red for error messages */
+        color: #dc3535; /* Red for error messages */
         margin-bottom: 20px;
         text-align: center;
     }
