@@ -9,7 +9,7 @@
     @endif
   
     <form action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+        @csrf   
         <input type="file" name="image">
         <button type="submit">Upload</button>
     </form>

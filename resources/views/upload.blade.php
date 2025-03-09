@@ -12,7 +12,7 @@
         <h1>Upload {{ isset($category) ? ucfirst($category) : 'Default' }} File</h1>
         
 
-        <!-- Upload Form -->
+        <!-- Upload F orm -->
         <form method="POST" action="{{ route('coursera.upload', ['category' => isset($category) ? $category : 'default']) }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

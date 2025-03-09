@@ -12,7 +12,7 @@
         .sop-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .sop-button { padding: 10px 15px; background: #ff0000; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; }
     </style>
-</head>
+</head>   
 <body>
     <div class="container mt-5">
         <h1>Statement of Purpose</h1>
