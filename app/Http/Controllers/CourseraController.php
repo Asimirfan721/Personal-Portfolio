@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // namespace is defined
 
-use Illuminate\Http\Request;
-use App\Models\Upload;
+use Illuminate\Http\Request; // Request is imported
+use App\Models\Upload;       // model is imported 
  
-class CourseraController extends Controller
+class CourseraController extends Controller // courseraController is defined extends controller
 {
     
-    public function showButtons()
+    public function showButtons()   // showButtons function is defined
     {
-        return view('buttons');
+        return view('buttons');  // view is called with the name of buttons
     }
  
-public function upload(Request $request)
+public function upload(Request $request)   // upload function is defined with request parameter
 {
     // Validate the incoming request data
     $request->validate([
@@ -23,22 +23,22 @@ public function upload(Request $request)
     ]);
 
     // Check if file is uploaded
-    if ($request->hasFile('file')) {
+    if ($request->hasFile('file')) { // Check if the file is uploaded
         // Generate a unique file name
-        $fileName = time() . '_' . $request->file('file')->getClientOriginalName();
+        $fileName = time() . '_' . $request->file('file')->getClientOriginalName();// generate a unique file name, time() is used to get the current time, '_' is used to concatenate the time with the original file name, getOriginalClientName() is used to get the original name of the file
 
         // Store the file in the 'uploads' directory in public storage
-        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public'); //$filepath is used to store the file in the uploads directory in public storage, storeAs() is used to store the file with the given name, 'public' is used to specify the disk
 
         // Save the upload information in the database
-        $upload = new Upload();
-        $upload->description = $request->input('description');
+        $upload = new Upload(); // Create a new Upload instance
+        $upload->description = $request->input('description'); // Set the description field of the upload instance to the description input from the request object 
         $upload->image_path = '/storage/uploads/' . $fileName; // Correct path for public storage
-        $upload->category = $request->input('category');
-        $upload->save();
+        $upload->category = $request->input('category'); // Set the category field of the upload instance to the category input from the request object
+        $upload->save(); // Save the upload instance to the database
 
         // Redirect to the correct category view  with success message
-        $category = $request->input('category');
+        $category = $request->input('category'); // Get the category from the request object
 
         if ($category === 'AI') {
             return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!');

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 abstract class Controller
 {
-    public function index()
+    public function index() // index is defined
     {
-        return view('home');
+        return view('home'); // view
     }
 }
    
