@@ -2,20 +2,20 @@
 
 // app/Http/Controllers/CalculatorController.php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // Define the namespace
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // Import the Request class
 
-class CalculatorController extends Controller
+class CalculatorController extends Controller // Define the class  CalculatorController and extend it from Controller
 {
     /**
      * Display the calculator form.
      * 
      * @return \Illuminate\View\View
      */
-    public function show()
+    public function show() // Define the show method
     {
-        return view('calculation');
+        return view('calculation'); // Return the calculation view
     }
 
     /**
@@ -24,7 +24,7 @@ class CalculatorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
-    public function calculate(Request $request)
+    public function calculate(Request $request) // Define the calculate method with request as a variable parameter
     {
         // Validate input fields
         $request->validate([
@@ -34,12 +34,12 @@ class CalculatorController extends Controller
         ]);
 
         // Extract validated input
-        $number1 = $request->input('number1');
-        $number2 = $request->input('number2');
-        $operation = $request->input('operation');
+        $number1 = $request->input('number1'); // Extract the number1 input
+        $number2 = $request->input('number2'); // Extract the number2 input
+        $operation = $request->input('operation'); // Extract the operation input
 
         // Perform calculation
-        $result = $this->performCalculation($number1, $number2, $operation);
+        $result = $this->performCalculation($number1, $number2, $operation); // Call the performCalculation method and store it in the result variable
 
         // If division by zero occurs, redirect with error
         if ($result === null) {
@@ -50,7 +50,7 @@ class CalculatorController extends Controller
         }
 
         // Return  the result to the view
-        return view('calculation', compact('result', 'number1', 'number2', 'operation'));
+        return view('calculation', compact('result', 'number1', 'number2', 'operation')); // Return the calculation view with the result, number1, number2, and operation
     }
 
     /**
@@ -61,7 +61,7 @@ class CalculatorController extends Controller
      * @param  string     $operation
      * @return float|int|null
      */
-    private function performCalculation($number1, $number2, $operation)
+    private function performCalculation($number1, $number2, $operation) // Define the performCalculation method
     {
         switch ($operation) {
             case 'add':
@@ -71,7 +71,7 @@ class CalculatorController extends Controller
             case 'multiply':
                 return $number1 * $number2;
             case 'divide':
-                return $number2 != 0 ? $number1 / $number2 : null;
+                return $number2 != 0 ? $number1 / $number2 : null; // Check if number2 is not equal to zero and perform the division
             default:
                 return null;
         }
