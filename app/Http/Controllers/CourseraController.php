@@ -40,17 +40,17 @@ public function upload(Request $request)   // upload function is defined with re
         // Redirect to the correct category view  with success message
         $category = $request->input('category'); // Get the category from the request object
 
-        if ($category === 'AI') {
-            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!');
+        if ($category === 'AI') { // Check if the category is AI
+            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!'); // Redirect to the AI route with a success message
         } else if ($category === 'CS') {
-            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!');
+            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!'); // Redirect to the CS route with a success message
         } else {
-            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!');
+            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message
         }
     }
 
     // Return an error message if file upload fails
-    return redirect()->back()->with('error', 'File upload failed.');
+    return redirect()->back()->with('error', 'File upload failed.'); // Return an error message if the file upload fails
 }
 
      /**
@@ -58,10 +58,10 @@ public function upload(Request $request)   // upload function is defined with re
      *
      * @return \Illuminate\View\View
      */
-    public function uploadform()
+    public function uploadform() // uploadform function is defined 
     {
-        $uploads = Upload::where('category', 'AI')->get();
-        return view('AI', compact('uploads'));
+        $uploads = Upload::where('category', 'AI')->get(); //  fetch uploads for the 'AI' category
+        return view('AI', compact('uploads'));   // view is called with the name of AI
     }
 
     /**
@@ -69,10 +69,10 @@ public function upload(Request $request)   // upload function is defined with re
      *
      * @return \Illuminate\View\View
      */
-    public function CS()
+    public function CS() // CS function is defined
     {
-        $uploads = Upload::where('category', 'CS')->get();
-        return view('CS', compact('uploads'));
+        $uploads = Upload::where('category', 'CS')->get(); // fetch uploads for the 'CS' category
+        return view('CS', compact('uploads'));    // view is called with the name of CS
     }
 
     /**
@@ -80,22 +80,22 @@ public function upload(Request $request)   // upload function is defined with re
      *
      * @return \Illuminate\View\View
      */
-    public function General()
+    public function General() // General function is defined
     {
-        $uploads = Upload::where('category', 'General')->get();
-        return view('General', compact('uploads'));
+        $uploads = Upload::where('category', 'General')->get(); // fetch uploads for the 'General' category 
+        return view('General', compact('uploads')); // view is called with the name of General
     }
-    public function showCategory($category)
+    public function showCategory($category) // showcategory function is defined with category parameter
 {
     // Validate category to prevent invalid input
-    if (!in_array($category, ['AI', 'CS', 'General'])) {
+    if (!in_array($category, ['AI', 'CS', 'General'])) { // Check if the category is not in the allowed categories
         abort(404); // Return 404 if category is not valid
     }
 
     // Fetch uploads for the given category
-    $uploads = Upload::where('category', $category)->get();
+    $uploads = Upload::where('category', $category)->get(); // Fetch uploads for the given category
     
     // Return the correct view with the uploads
-    return view('category', compact('uploads', 'category'));
+    return view('category', compact('uploads', 'category')); // Return the category view with the uploads and category
 } 
 }
