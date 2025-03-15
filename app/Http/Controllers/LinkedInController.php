@@ -14,4 +14,4 @@ class LinkedInController extends Controller // LinkedInController class is defin
 
         return redirect()->away($linkedinUrl);  // Redirects to the LinkedIn URL
     }
-}
+}  
