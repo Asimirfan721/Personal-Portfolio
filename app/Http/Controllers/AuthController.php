@@ -20,7 +20,7 @@ class AuthController extends Controller //class AuthController is created which 
     /**
      * Handle user registration.  
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request  
      * @return \Illuminate\Http\RedirectResponse
      */
     public function register(Request $request) // register function is created, where request variable is used as a parameter 
