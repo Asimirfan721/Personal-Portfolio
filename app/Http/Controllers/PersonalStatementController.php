@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers; // define name space 
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // import Request class
+use App\Http\Controllers\Controller; // import Controller class
 use App\Models\PersonalStatement;
 
 class PersonalStatementController extends Controller
