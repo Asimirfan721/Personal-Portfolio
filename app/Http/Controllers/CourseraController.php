@@ -46,7 +46,7 @@ public function upload(Request $request)   // upload function is defined with re
             return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!'); // Redirect to the CS route with a success message
         } else {
             return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message
-        }
+        }  
     }   
     
 

@@ -16,3 +16,4 @@ class GitHubController extends Controller // GitHubController class is defined a
         return redirect()->away($githubUrl); // Redirects to the GitHub URL
     }
 }
+// app/Http/Controllers/GitHubController.php
