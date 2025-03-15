@@ -8,7 +8,7 @@ use Illuminate\Http\Request; // Import the Request class
 
 class CalculatorController extends Controller // Define the class  CalculatorController and extend it from Controller
 {
-    /**
+    /**   
      * Display the calculator form.   
      * 
      * @return \Illuminate\View\View
