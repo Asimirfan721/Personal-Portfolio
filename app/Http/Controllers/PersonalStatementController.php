@@ -13,7 +13,7 @@ class PersonalStatementController extends Controller
     $statements = PersonalStatement::all(); // Using the PersonalStatement model to fetch all personal statements from the database
     return view('personal-statement', compact('statements'));
 
-    }
+    }  
 
     public function create()
     {

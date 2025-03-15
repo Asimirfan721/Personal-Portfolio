@@ -44,7 +44,7 @@ class ProfileController extends Controller
 
         if (!$user) {
             return redirect()->route('profile')->withErrors('User not found.');
-        }
+        }   
 
         // Update the user's profile information
         $user->name = $request->input('name');

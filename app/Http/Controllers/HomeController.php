@@ -14,3 +14,4 @@ class HomeController extends Controller // HomeController class is defined and e
         return view('home'); // view is called with name home
     }  
 }    
+   
