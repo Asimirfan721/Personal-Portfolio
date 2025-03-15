@@ -9,4 +9,4 @@ abstract class Controller
         return view('home'); // view
     }
 }   
-   
+     
