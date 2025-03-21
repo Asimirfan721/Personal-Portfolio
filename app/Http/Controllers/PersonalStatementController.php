@@ -4,7 +4,7 @@ namespace App\Http\Controllers; // define name space
 
 use Illuminate\Http\Request; // import Request class
 use App\Http\Controllers\Controller; // import Controller class
-use App\Models\PersonalStatement;
+use App\Models\PersonalStatement;  // import models here
 
 class PersonalStatementController extends Controller
 {

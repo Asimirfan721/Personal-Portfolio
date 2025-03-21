@@ -3,7 +3,7 @@
 // app/Http/Controllers/HomeControl ler
 
 namespace App\Http\Controllers; // namespace is defined
-
+    
 use Illuminate\Http\Request; // Request class is imported 
 use App\Http\Controllers\Controller; // Controller class is imported
 
