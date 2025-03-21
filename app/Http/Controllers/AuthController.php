@@ -18,12 +18,12 @@ class AuthController extends Controller //class AuthController is created which 
     }
 
     /**
-     * Handle user registration here .  
+     * Handle user registration here .     
      *
      * @param  \Illuminate\Http\Request  $request  
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function register(Request $request) // register function is created, where request variable is used as a parameter 
+    public function register(Request $request) // register   function is created, where request variable is used as a parameter 
     {
         $this->validateRegistration($request); // validateRegistration function is called with request varibale as a parameter
 

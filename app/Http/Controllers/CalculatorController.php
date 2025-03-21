@@ -2,11 +2,11 @@
 
 // app/Http/Controllers/CalculatorController.php
 
-namespace App\Http\Controllers; // Define the namespace
+namespace App\Http\Controllers; // Define the namespace  
 
-use Illuminate\Http\Request; // Import the Request class
+use Illuminate\Http\Request; // Import the Request class  
 
-class CalculatorController extends Controller // Define the class  CalculatorController and extend it from Controller
+class CalculatorController extends Controller // Define   the class  CalculatorController and extend it from Controller
 {
     /**   
      * Display the calculator form.   
