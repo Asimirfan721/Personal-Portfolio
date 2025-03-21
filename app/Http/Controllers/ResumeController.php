@@ -23,12 +23,12 @@ class ResumeController extends Controller
         ]);
    
          //why the hell should i distrub them
-        $path = $request->file('file')->store('resume', 'public');
+        $path = $request->file('file')->store('resume', 'public'); // $path request 
 
-        $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
+        $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true); // description is explained here 
         $descriptions[$path] = $request->description;
         Storage::put('public/resume/descriptions.json', json_encode($descriptions));
 
-        return back()->with('success', 'File uploaded successfully.');
+        return back()->with('success', 'File uploaded successfully.');// reutnrned is printed here
     }
 }
