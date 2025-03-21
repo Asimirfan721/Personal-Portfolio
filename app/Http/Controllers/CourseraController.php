@@ -41,16 +41,16 @@ public function upload(Request $request)   // upload function is defined with re
         $category = $request->input('category'); // Get the category from the request object
 
         if ($category === 'AI') { // Check if the category is AI
-            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!'); // Redirect to the AI route with a success message
+            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!'); // Redirect to the AI route with a success message is called here
         } else if ($category === 'CS') {
-            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!'); // Redirect to the CS route with a success message
+            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!'); // Redirect to the CS route with a success message is called here 
         } else {
-            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message
+            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message is called here 
         }  
     }   
        
 
-    // Return an error message if file upload fails
+    // Return an error message if file upload fails and call it here 
     return redirect()->back()->with('error', 'File upload failed.'); // Return an error message if the file upload fails
 }
 
