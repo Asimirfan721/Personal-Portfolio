@@ -18,7 +18,7 @@ class AuthController extends Controller //class AuthController is created which 
     }
 
     /**
-     * Handle user registration.  
+     * Handle user registration here .  
      *
      * @param  \Illuminate\Http\Request  $request  
      * @return \Illuminate\Http\RedirectResponse
