@@ -47,13 +47,13 @@ public function upload(Request $request)   // upload function is defined with re
         } else {
             return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message is called here 
         }  
-    }   
+    }     
        
 
     // Return an error message if file upload fails and call it here 
     return redirect()->back()->with('error', 'File upload failed.'); // Return an error message if the file upload fails
 }
-
+  
      /**
      * Show uploads for   the 'AI' category.
      *
