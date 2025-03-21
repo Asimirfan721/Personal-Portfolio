@@ -11,7 +11,7 @@ class HomeController extends Controller // HomeController class is defined and e
 {   
     public function index() // index method is defined
     {// Return the home view
-        return view('home'); // view is called with name home
+        return view('home'); // view is called with name home  // this code is working fine
     }  
 }    
    
