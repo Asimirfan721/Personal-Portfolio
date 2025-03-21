@@ -33,8 +33,8 @@ class ProfileController extends Controller
     {
         // Validate the request
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
+            'name' => 'required|string|max:255', // name required
+            'email' => 'required|email|max:255|unique:users,email,' . Auth::id(), // email required
             // Add more validation rules if necessary
         ]);
  
