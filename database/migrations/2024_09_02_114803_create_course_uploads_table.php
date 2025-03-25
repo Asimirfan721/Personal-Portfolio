@@ -22,8 +22,8 @@ class CreateCourseUploadsTable extends Migration
         });
     } 
    
-    /**     
-     * Reverse the migrations.
+    /**        
+     * Reverse the migrations. for time stamps 
      *
      * @return void
      */
