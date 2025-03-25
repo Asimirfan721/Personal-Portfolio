@@ -136,7 +136,7 @@
         <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
     </div>
 
-    <!-- Show Success or Error Messages at the Top on the groun-->
+    <!-- Show Success or Error Messages at the Top on the groud-->
     @if(session('success'))
         <div class="message">
             {{ session('success') }}
