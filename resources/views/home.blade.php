@@ -116,7 +116,7 @@
             }
 
             .profile-image {
-                width: 80%; /* Profile image scaling for smaller screens */
+                width: 80%; /* Profile image scaling for smaller screens  is available*/
             }
         }
     </style>

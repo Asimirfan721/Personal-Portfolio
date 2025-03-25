@@ -148,7 +148,7 @@
         <button type="submit">Upload</button>
     </form>
 
-    <!-- Uploaded Files Section -->
+    <!-- Uploaded Files Section is in general-->
     @if(isset($uploads) && count($uploads) > 0)
         <h3>Uploaded Files</h3>
         <div class="uploaded-files">

@@ -128,7 +128,7 @@
 </style>
 
 <div class="container">
-    <!-- Home Button at the Top in the bottom-->
+    <!-- Home Button at the Top in th e bottom-->
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
      </div>

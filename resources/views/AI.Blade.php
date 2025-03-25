@@ -104,7 +104,7 @@
         font-weight: bold;
         font-size: 1.2em;
         margin-bottom: 10px;
-        color: #ff0000; /* Red for sequence numbers */
+        color: #ff0000; /* Red for sequence numbers here */
     }
 </style> 
 
