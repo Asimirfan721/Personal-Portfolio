@@ -128,7 +128,7 @@
 </style>
 
 <div class="container">
-    <!-- Home Button at the Top -->
+    <!-- Home Button at the Top in the bottom-->
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
      </div>
@@ -136,7 +136,7 @@
         <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
     </div>
 
-    <!-- Show Success or Error Messages at the Top -->
+    <!-- Show Success or Error Messages at the Top on the groun-->
     @if(session('success'))
         <div class="message">
             {{ session('success') }}
