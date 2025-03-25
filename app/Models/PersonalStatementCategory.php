@@ -11,7 +11,7 @@ class PersonalStatementCategory extends Model
 
     protected $fillable = ['user_id', 'name','category_id', 'content', 'email'];
     protected $table = 'personal_statement_categories';
-// this is personal statment
+// this is personal statment  
     public function category()
     { 
         return $this->belongsTo(PersonalStatementCategory::class, 'category_id');

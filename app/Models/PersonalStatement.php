@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PersonalStatement extends Model
 {
-    use HasFactory;
+    use HasFactory;  
     //this is for factory/
 
     protected $fillable = ['user_id', 'category_id', 'content', 'email'];
