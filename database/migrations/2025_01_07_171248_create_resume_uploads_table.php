@@ -11,7 +11,7 @@ class CreateResumeUploadsTable extends Migration
             $table->id(); // Primary key
             $table->string('file_path'); // Path to the uploaded file
             $table->text('description')->nullable(); // De scription of the file
-            $table->timestamps(); // Created at and Updated at timestamps
+            $table->timestamps(); // Created at and Updated at timestamps here is 
         });
     }
   
@@ -20,3 +20,4 @@ class CreateResumeUploadsTable extends Migration
         Schema::dropIfExists('resume_uploads');
     }
 }
+  
