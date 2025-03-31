@@ -12,7 +12,7 @@ class ResumeController extends Controller
         $files = Storage::disk('public')->files('resume');
         $descriptions = json_decode(Storage::get('public/resume/descriptions.json') ?? '[]', true);
 
-        return view('resume', compact('files', 'descriptions'));
+        return view('resume', compact('files', 'descriptions')); // files will store the file
     } 
 
     public function upload(Request $request)
