@@ -8,6 +8,6 @@ class Personalusercontroller extends Controller
 {
     public function index()
     {
-        return view('personaluser');
+        return view('personaluser'); // view is called
     }
 }
