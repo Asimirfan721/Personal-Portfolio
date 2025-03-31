@@ -16,13 +16,16 @@ class StatementOfPurposeController extends Controller
     }
 
     // Show create SOP form
-    public function create()
+    public function create()    // create function is created
     {
         return view('statement-of-purpos', ['create' => true, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
     }
 
     // Show edit SOP form
-    public function edit($id)
+    public function edit($id) // edit function is created
+    {
+        // Find the SOP by ID and ensure it belongs to the authenticated user
+        // If not found, it will throw a 404 error
     {
         $sop = StatementOfPurpose::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         return view('statement-of-purpos', ['edit' => $sop, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
