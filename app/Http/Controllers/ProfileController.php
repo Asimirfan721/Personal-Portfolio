@@ -43,7 +43,7 @@ class ProfileController extends Controller
         $user = User::find($userId);
 
         if (!$user) {  
-            return redirect()->route('profile')->withErrors('User not found.');
+            return redirect()->route('profile')->withErrors('User not found.');// condition
         }   
 
         // Update the user's profile information

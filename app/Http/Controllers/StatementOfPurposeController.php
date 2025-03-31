@@ -30,7 +30,7 @@ class StatementOfPurposeController extends Controller
         $sop = StatementOfPurpose::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         return view('statement-of-purpos', ['edit' => $sop, 'statements' => StatementOfPurpose::where('user_id', Auth::id())->get()]);
     }
-
+    }
     // Store new SOP
     public function store(Request $request)
 {
