@@ -49,7 +49,7 @@ public function upload(Request $request)   // upload function is defined with re
         }  
     }     
        
-
+    // If the file upload fails, redirect back with an error message
     // Return an error message if file upload fails and call it here 
     return redirect()->back()->with('error', 'File upload failed.'); // Return an error message if the file upload fails
 }
