@@ -17,7 +17,7 @@ class PersonalStatementController extends Controller
 
     public function create()
     {
-        return view('personal-statement');
+        return view('personal-statement'); // view is called
     }
 
     public function store(Request $request)
