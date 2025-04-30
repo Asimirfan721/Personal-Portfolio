@@ -12,12 +12,12 @@ class PersonalStatementController extends Controller
 {
     $statements = PersonalStatement::all(); // Using the PersonalStatement model to fetch all personal statements from the database
     return view('personal-statement', compact('statements'));
-
+   
     }  
 
     public function create()
     {
-        return view('personal-statement'); // view is called
+        return view('personal-statement'); // view is called home
     }
 
     public function store(Request $request)
