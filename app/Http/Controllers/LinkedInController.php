@@ -9,7 +9,7 @@ class LinkedInController extends Controller // LinkedInController class is defin
 {  
     public function index() //index method is defined   
     {     
-        // Replace the URL   below act linkedIn profile URL url of linkedin  // replace 
+        // Replace the URL   below act linkedIn profile URL url of linkedin  // replace  is used to replace the URL
         $linkedinUrl = 'https://www.linkedin.com/in/asim-irfan-aa49a31a1/';
 
         return redirect()->away($linkedinUrl);  // Redirects to the LinkedIn URL
