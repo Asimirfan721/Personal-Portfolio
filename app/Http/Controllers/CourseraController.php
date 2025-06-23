@@ -1,105 +1,76 @@
 <?php
 
-namespace App\Http\Controllers; // namespace is defined
+namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; // Request is imported
-use App\Models\Upload;       // model is imported 
- 
-class CourseraController extends Controller // courseraController is defined extends controller
+use Illuminate\Http\Request;
+use App\Models\Upload;
+
+class CourseraController extends Controller
 {
-    
-    public function showButtons()   // showButtons function is defined
+    public function showButtons()
     {
-        return view('buttons');  // view is called with the name of buttons
+        return view('buttons');
     }
- 
-public function upload(Request $request)   // upload function is defined with request parameter
-{
-    // Validate the incoming request data
-    $request->validate([
-        'description' => 'required|string|max:255',
-        'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
-        'category' => 'required|string|in:AI,CS,General', // Validate the category
-    ]);
 
-    // Check if file is uploaded
-    if ($request->hasFile('file')) { // Check if the file is uploaded
-        // Generate a unique file name
-        $fileName = time() . '_' . $request->file('file')->getClientOriginalName();// generate a unique file name, time() is used to get the current time, '_' is used to concatenate the time with the original file name, getOriginalClientName() is used to get the original name of the file
-
-        // Store the file in the 'uploads' directory in public storage
-        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public'); //$filepath is used to store the file in the uploads directory in public storage, storeAs() is used to store the file with the given name, 'public' is used to specify the disk
-
-        // Save the upload information in the database
-        $upload = new Upload(); // Create a new Upload instance
-        $upload->description = $request->input('description'); // Set the description field of the upload instance to the description input from the request object 
-        $upload->image_path = '/storage/uploads/' . $fileName; // Correct path for public storage
-        $upload->category = $request->input('category'); // Set the category field of the upload instance to the category input from the request object
-        $upload->save(); // Save the upload instance to the database
-
-        // Redirect to the correct category view  with success message
-        $category = $request->input('category'); // Get the category from the request object
-
-        if ($category === 'AI') { // Check if the category is AI
-            return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!'); // Redirect to the AI route with a success message is called here
-        } else if ($category === 'CS') {
-            return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!'); // Redirect to the CS route with a success message is called here 
-        } else {
-            return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!'); // Redirect to the General route with a success message is called here 
-        }  
-    }     
-       
-    // If the file upload fails, redirect back with an error message
-    // Return an error message if file upload fails and call it here 
-    return redirect()->back()->with('error', 'File upload failed.'); // Return an error message if the file upload fails
-}
-  
-     /**
-     * Show uploads for   the 'AI' category.
-     *
-     * @return \Illuminate\View\View
-     */
-   public function uploadform()
-{
-    $uploads = Upload::where('category', 'AI')->get();
-    $category = 'AI';
-    $images = $uploads; // alias
-    return view('AI', compact('uploads', 'category','images')); // ✅ Now passes both variables
-}
-
-
-    /**
-     * Show uploads for the 'CS' category.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function CS() // CS function is defined
+    public function upload(Request $request)
     {
-        $uploads = Upload::where('category', 'CS')->get(); // fetch uploads for the 'CS' category
-        return view('CS', compact('uploads'));    // view is called with the name of CS
+        $request->validate([
+            'description' => 'required|string|max:255',
+            'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
+            'category' => 'required|string|in:AI,CS,General',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $fileName = time() . '_' . $request->file('file')->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
+            $upload = new Upload();
+            $upload->description = $request->input('description');
+            $upload->image_path = '/storage/uploads/' . $fileName;
+            $upload->category = $request->input('category');
+            $upload->save();
+
+            $category = $request->input('category');
+
+            if ($category === 'AI') {
+                return redirect()->route('coursera.ai')->with('success', 'File uploaded successfully!');
+            } else if ($category === 'CS') {
+                return redirect()->route('coursera.cs')->with('success', 'File uploaded successfully!');
+            } else {
+                return redirect()->route('coursera.general')->with('success', 'File uploaded successfully!');
+            }
+        }
+
+        return redirect()->back()->with('error', 'File upload failed.');
     }
 
-    /**
-     * Show uploads for the 'General' category.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function General() // General function is defined
+    public function uploadform()
     {
-        $uploads = Upload::where('category', 'General')->get(); // fetch uploads for the 'General' category 
-        return view('General', compact('uploads')); // view is called with the name of General
-    }
-    public function showCategory($category) // showcategory function is defined with category parameter
-{
-    // Validate category to prevent invalid input
-    if (!in_array($category, ['AI', 'CS', 'General'])) { // Check if the category is not in the allowed categories
-        abort(404); // Return 404 if category is not valid
+        $uploads = Upload::where('category', 'AI')->get();
+        $category = 'AI';
+        $images = $uploads;
+        return view('AI', compact('uploads', 'category', 'images'));
     }
 
-    // Fetch uploads for the given category
-    $uploads = Upload::where('category', $category)->get(); // Fetch uploads for the given category
-    
-    // Return the correct view with the uploads
-    return view('category', compact('uploads', 'category')); // Return the category view with the uploads and category
-} 
+    public function CS()
+    {
+        $uploads = Upload::where('category', 'CS')->get();
+        return view('CS', compact('uploads'));
+    }
+
+    public function General()
+    {
+        $uploads = Upload::where('category', 'General')->get();
+        return view('General', compact('uploads'));
+    }
+
+    public function showCategory($category)
+    {
+        if (!in_array($category, ['AI', 'CS', 'General'])) {
+            abort(404);
+        }
+
+        $uploads = Upload::where('category', $category)->get();
+        return view('category', compact('uploads', 'category'));
+    }
 }
