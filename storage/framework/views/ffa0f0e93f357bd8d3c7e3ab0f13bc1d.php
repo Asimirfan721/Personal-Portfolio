@@ -111,42 +111,44 @@
 <div class="container">
     <!-- Home Button -->
     <div class="header">
-        <a href="{{ url('/home') }}" class="btn-home">Home</a>
+        <a href="<?php echo e(url('/home')); ?>" class="btn-home">Home</a>
     </div>
 
     <!-- Category Button -->
     <div class="header">
-        <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
+        <a href="<?php echo e(route('coursera.showButtons')); ?>" class="btn-Category">Category</a>
     </div>
     <div class="text-center my-4">
-    <a href="{{ url('/categories') }}" class="btn btn-success btn-lg">Add Category</a>
+    <a href="<?php echo e(url('/categories')); ?>" class="btn btn-success btn-lg">Add Category</a>
 </div>
 
 
     <!-- Messages -->
-    @if(session('success'))
+    <?php if(session('success')): ?>
         <div class="message">
-            {{ session('success') }}
-        </div>
-    @endif
+            <?php echo e(session('success')); ?>
 
-    @if(session('error'))
-        <div class="error">
-            {{ session('error') }}
         </div>
-    @endif
+    <?php endif; ?>
+
+    <?php if(session('error')): ?>
+        <div class="error">
+            <?php echo e(session('error')); ?>
+
+        </div>
+    <?php endif; ?>
 
     <!-- Upload Form -->
-    <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data" class="upload-form">
-        @csrf
+    <form action="<?php echo e(route('upload')); ?>" method="POST" enctype="multipart/form-data" class="upload-form">
+        <?php echo csrf_field(); ?>
 
        <div>
     <label for="category_id">Select Category:</label>
     <select name="category_id" required>
         <option value="">-- Choose Category --</option>
-        @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endforeach
+        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </select>
 </div>
 
@@ -165,24 +167,25 @@
     </form>
 
     <!-- Uploaded Files -->
-    @if(isset($uploads) && count($uploads) > 0)
+    <?php if(isset($uploads) && count($uploads) > 0): ?>
         <h3 style="color: #ff0000;">Uploaded Files</h3>
         <div class="uploaded-files">
-            @php
+            <?php
     $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-@endphp
+?>
 
-@foreach ($uploads as $index => $upload)
+<?php $__currentLoopData = $uploads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $upload): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="uploaded-file-item">
-        <div class="sequence-number">#{{ $index + 1 }}</div>
-        @if(in_array(strtolower(pathinfo($upload->image_path, PATHINFO_EXTENSION)), $imageExtensions))
-            <img src="{{ asset('storage/' . $upload->image_path) }}" alt="Uploaded Image">
-        @else
-            <a href="{{ asset('storage/' . $upload->image_path) }}" target="_blank">View File</a>
-        @endif
-        <p>{{ $upload->description }}</p>
+        <div class="sequence-number">#<?php echo e($index + 1); ?></div>
+        <?php if(in_array(strtolower(pathinfo($upload->image_path, PATHINFO_EXTENSION)), $imageExtensions)): ?>
+            <img src="<?php echo e(asset('storage/' . $upload->image_path)); ?>" alt="Uploaded Image">
+        <?php else: ?>
+            <a href="<?php echo e(asset('storage/' . $upload->image_path)); ?>" target="_blank">View File</a>
+        <?php endif; ?>
+        <p><?php echo e($upload->description); ?></p>
     </div>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-    @endif
+    <?php endif; ?>
 </div>
+<?php /**PATH C:\Users\Taha Ahmed\OneDrive\Desktop\coding\laravel\Personal-Portfolio\resources\views/AI.blade.php ENDPATH**/ ?>

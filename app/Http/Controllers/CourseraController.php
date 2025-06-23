@@ -27,7 +27,8 @@ class CourseraController extends Controller
 
             $upload = new Upload();
             $upload->description = $request->input('description');
-            $upload->image_path = '/storage/uploads/' . $fileName;
+            $upload->image_path = 'uploads/' . $fileName; // remove /storage/
+
             $upload->category_id = $request->input('category_id');
             $upload->save();
 
