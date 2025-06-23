@@ -165,4 +165,28 @@
             @endforeach
         </div>
     @endif
-</div> 
+</div>
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h2 style="color: #ff0000;">Images for category: {{ $category }}</h2>
+
+    @if($images->count())
+        <div class="uploaded-files">
+            @foreach($images as $index => $image)
+                <div class="uploaded-file-item">
+                    <div class="sequence-number">#{{ $index + 1 }}</div>
+                    <img src="{{ asset('storage/' . $image->path) }}" alt="Uploaded Image">
+                    @if(isset($image->description))
+                        <p>{{ $image->description }}</p>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    @else
+        <p>No images found for this category.</p>
+    @endif
+</div>
+@endsection

@@ -59,11 +59,14 @@ public function upload(Request $request)   // upload function is defined with re
      *
      * @return \Illuminate\View\View
      */
-    public function uploadform() // uploadform function is defined 
-    {
-        $uploads = Upload::where('category', 'AI')->get(); //  fetch uploads for the 'AI' category
-        return view('AI', compact('uploads'));   // view is called with the name of AI
-    }
+   public function uploadform()
+{
+    $uploads = Upload::where('category', 'AI')->get();
+    $category = 'AI';
+    $images = $uploads; // alias
+    return view('AI', compact('uploads', 'category','images')); // ✅ Now passes both variables
+}
+
 
     /**
      * Show uploads for the 'CS' category.
