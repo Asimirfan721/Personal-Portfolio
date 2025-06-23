@@ -140,7 +140,16 @@
     <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data" class="upload-form">
         @csrf
 
-        <input type="hidden" name="category" value="AI">
+       <div>
+    <label for="category_id">Select Category:</label>
+    <select name="category_id" required>
+        <option value="">-- Choose Category --</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+</div>
+
 
         <div>
             <label for="file">Choose a file:</label>

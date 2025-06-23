@@ -18,7 +18,7 @@ class CourseraController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
-            'category_id' => 'required|string|in:AI,CS,General',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         if ($request->hasFile('file')) {
@@ -45,13 +45,12 @@ class CourseraController extends Controller
         return redirect()->back()->with('error', 'File upload failed.');
     }
 
-   public function uploadForm()
+  public function uploadform()
 {
-    $uploads = Upload::whereHas('category', function ($q) {
-        $q->where('name', 'AI');
-    })->get();
-
-    $categories = Category::all();
+   $uploads = Upload::whereHas('category', function ($query) {
+    $query->where('name', 'AI');
+})->get();
+    $categories = Category::all(); // Fetch all categories
     return view('AI', compact('uploads', 'categories'));
 }
     public function CS()
@@ -62,7 +61,9 @@ class CourseraController extends Controller
 
     public function General()
     {
-        $uploads = Upload::where('category', 'General')->get();
+        $uploads = Upload::whereHas('category', function ($query) {
+    $query->where('name', 'General');
+})->get();
         return view('General', compact('uploads'));
     }
 
