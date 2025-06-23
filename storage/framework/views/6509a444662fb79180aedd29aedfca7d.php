@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <style>
     body {
         background: #f4f6f8;
@@ -121,29 +119,43 @@
 <div class="resume-container">
     <div class="resume-header">
         <h1>Upload Your Resume</h1>
-        <a href="{{ url('/home') }}" class="btn-home">Home</a>
+        <a href="<?php echo e(url('/home')); ?>" class="btn-home">Home</a>
     </div>
 
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    <?php if(session('success')): ?>
+        <div class="alert alert-success"><?php echo e(session('success')); ?></div>
+    <?php endif; ?>
 
-    <form action="{{ route('resume.upload') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+    <form action="<?php echo e(route('resume.upload')); ?>" method="POST" enctype="multipart/form-data">
+        <?php echo csrf_field(); ?>
         <div class="mb-3">
             <label for="file" class="form-label">Select File (PDF/Image)</label>
             <input type="file" name="file" id="file" class="form-control" required>
-            @error('file')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
+            <?php $__errorArgs = ['file'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
         </div>
 
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <input type="text" name="description" id="description" class="form-control" placeholder="Enter a brief description" required>
-            @error('description')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
+            <?php $__errorArgs = ['description'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Upload</button>
@@ -152,13 +164,15 @@
     <div class="uploaded-section">
         <h2>Uploaded Files</h2>
         <ul class="list-group">
-            @foreach ($files as $file)
+            <?php $__currentLoopData = $files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $file): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li class="list-group-item">
-                    <a href="{{ asset('storage/' . $file) }}" target="_blank">{{ basename($file) }}</a>
-                    <p>{{ $descriptions[$file] ?? '' }}</p>
+                    <a href="<?php echo e(asset('storage/' . $file)); ?>" target="_blank"><?php echo e(basename($file)); ?></a>
+                    <p><?php echo e($descriptions[$file] ?? ''); ?></p>
                 </li>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Taha Ahmed\OneDrive\Desktop\coding\laravel\Personal-Portfolio\resources\views/resume.blade.php ENDPATH**/ ?>

@@ -7,73 +7,80 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000; /* Black   background */
-            color: #fff; /* White text */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #e9eef3;
+            color: #222;
+            min-height: 100vh;
         }
         .container {
-            max-width: 600px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #fff; /* White content area */
-            color: #000; /* Black text inside container */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+            max-width: 480px;
+            margin: 60px auto;
+            padding: 32px 28px 28px 28px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(60,72,88,0.10), 0 1.5px 4px rgba(60,72,88,0.07);
         }
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         .header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #e60000; /* Red heading */
+            font-size: 2em;
+            font-weight: 700;
+            color: #3a3a3a;
+            letter-spacing: 1px;
         }
         .btn-home {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 12px 24px;
-            background-color: #000; /* Black button */
-            color: #e60000; /* Red text */
+            display: block;
+            margin: 0 auto 24px auto;
+            padding: 10px 28px;
+            background: #4a90e2;
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            border: 2px solid #e60000; /* Red border */
-            border-radius: 50px; /* Rounded button */
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+            border: none;
+            border-radius: 24px;
+            font-size: 1.1em;
+            box-shadow: 0 1px 4px rgba(60,72,88,0.07);
+            transition: background 0.2s, transform 0.2s;
         }
         .btn-home:hover {
-            background-color: #e60000; /* Red on hover */
-            color: #fff; /* White text */
-            transform: scale(1.05);
+            background: #357ab8;
+            color: #fff;
+            transform: scale(1.04);
         }
         .category-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 28px 18px 18px 18px;
+            box-shadow: 0 1px 4px rgba(60,72,88,0.04);
             text-align: center;
-            padding: 20px;
-            border: 2px solid #000; /* Black border */
-            border-radius: 10px;
-            background-color: #f9f9f9; /* Light background inside container */
         }
         .category-card h2 {
-            color: #e60000; /* Red subheading */
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: #4a90e2;
+            font-weight: 600;
+            margin-bottom: 18px;
+            font-size: 1.2em;
         }
-        .btn {
+        .btn-category {
             display: block;
-            margin: 10px auto;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff; /* White text */
-            background-color: #000; /* Black button */
-            border: 2px solid #e60000; /* Red border */
-            border-radius: 10px; 
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            margin: 12px 0;
+            padding: 14px 0;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #fff;
+            background: #6abf69;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 1px 4px rgba(60,72,88,0.07);
+            text-decoration: none;
         }
-        .btn:hover {
-            background-color: #e60000; /* Red on hover */
-            color: #fff; /* White text */
-            transform: scale(1.05);
+        .btn-category:hover {
+            background: #4e9e4e;
+            color: #fff;
+            transform: scale(1.03);
         }
     </style>
 </head>
@@ -87,15 +94,14 @@
         <!-- Home Button -->
         <a href="<?php echo e(url('/home')); ?>" class="btn-home">🏠 Home</a>
 
-        <!-- Category Selection Section here -->
+        <!-- Category Selection Section -->
         <div class="category-card">
             <h2>Select a Category</h2>
-            <a href="<?php echo e(route('form')); ?>" class="btn">Coursera</a>
-            <a href="<?php echo e(route('CS')); ?>" class="btn">Recommendations</a>
-            <a href="<?php echo e(route('General')); ?>" class="btn">General</a>
+            <a href="<?php echo e(route('form')); ?>" class="btn-category">Coursera</a>
+            <a href="<?php echo e(route('CS')); ?>" class="btn-category">Recommendations</a>
+            <a href="<?php echo e(route('General')); ?>" class="btn-category">General</a>
         </div>
     </div>
- 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html><?php /**PATH C:\Users\Taha Ahmed\OneDrive\Desktop\coding\laravel\Personal-Portfolio\resources\views/buttons.blade.php ENDPATH**/ ?>

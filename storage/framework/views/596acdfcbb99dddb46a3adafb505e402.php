@@ -7,135 +7,114 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-    background: url("<?php echo e(asset('images/background.jpg')); ?>") no-repeat center center fixed;
-    background-size: cover; /* Ensures the image covers the entire screen */
-    color: #fff; /* White text for readability */
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-        /* Navigation Bar */
+            background: linear-gradient(120deg, #e9eef3 0%, #f4f6f8 100%);
+            color: #222;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
         .navbar {
-            background-color: #1a1a1a; /* Darker navbar */
-            border-bottom: 3px solid #f44336; /* Red border for contrast */
-            padding: 10px 20px;
-            position: fixed;
+            background: #fff;
+            border-bottom: 2px solid #4a90e2;
+            padding: 12px 28px;
+            box-shadow: 0 2px 12px rgba(60,72,88,0.07);
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 10;
         }
-
         .navbar .navbar-brand {
-            color: #fff;
+            color: #4a90e2;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 1.6em;
+            letter-spacing: 1px;
         }
-
         .navbar .nav-link {
-            color: #fff;
+            color: #222;
             margin: 0 10px;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            font-size: 1em;
+            font-weight: 500;
+            border-radius: 18px;
+            transition: background 0.2s, color 0.2s;
+            padding: 7px 18px;
         }
-
-        .navbar .nav-link:hover {
-            color: #f44336; /* Red hover effect */
+        .navbar .nav-link:hover, .navbar .nav-link.active {
+            background: #e9eef3;
+            color: #4a90e2;
         }
-
         .navbar .btn-danger {
-            padding: 6px 12px;
-            font-size: 14px;
-            margin-left: auto;
-            background-color: #f44336; /* Button color */
+            padding: 7px 18px;
+            font-size: 1em;
+            margin-left: 18px;
+            background-color: #f44336;
             border-color: #f44336;
+            border-radius: 18px;
+            font-weight: 500;
+            transition: background 0.2s;
         }
-
-        /* Main Content */
-        .container {
-            padding: 120px 20px 20px; /* Adjusted padding to account for fixed navbar */
-            text-align: center;
+        .navbar .btn-danger:hover {
+            background: #c62828;
         }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .about-section {
-            background-color: #1a1a1a; /* Slightly lighter dark background */
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Subtle shadow for depth */
-        }
-
-        .about-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #f44336; /* Red underline */
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .about-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #bbb; /* Lighter text for better readability */
-        }
-
-        /* Profile Image */
-        .profile-image {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-            margin-bottom: 20px;
-        }
-
-        .content {
+        .main-content {
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(60,72,88,0.10), 0 1.5px 4px rgba(60,72,88,0.07);
+            padding: 38px 32px 32px 32px;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-direction: column;
+            gap: 40px;
             align-items: center;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .content {
+        .profile-image {
+            max-width: 220px;
+            border-radius: 14px;
+            box-shadow: 0 5px 15px rgba(60,72,88,0.10);
+            margin-bottom: 10px;
+        }
+        .about-section {
+            flex: 1;
+        }
+        .about-section h2 {
+            font-size: 2rem;
+            color: #4a90e2;
+            font-weight: 700;
+            margin-bottom: 14px;
+            border-bottom: 2px solid #e9eef3;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+        .about-section p {
+            font-size: 1.13rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        @media (max-width: 900px) {
+            .main-content {
                 flex-direction: column;
-                align-items: center;
-                gap: 20px;
+                padding: 28px 12px 24px 12px;
+                gap: 24px;
             }
-
-            .about-section p {
-                font-size: 1rem; /* Slightly smaller text on mobile */
-            }
-
             .profile-image {
-                width: 80%; /* Profile image scaling for smaller screens  is available*/
+                max-width: 80vw;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar d-flex align-items-center justify-content-between">
         <a class="navbar-brand" href="#">Asim Irfan</a>
-        <div class="d-flex">
-            <a class="nav-link" href="<?php echo e(route('home')); ?>">Home</a>
+        <div class="d-flex align-items-center flex-wrap">
+            <a class="nav-link<?php echo e(request()->routeIs('home') ? ' active' : ''); ?>" href="<?php echo e(route('home')); ?>">Home</a>
             <a class="nav-link" href="<?php echo e(route('linkedin')); ?>">LinkedIn</a>
             <a class="nav-link" href="<?php echo e(route('github')); ?>">GitHub</a>
             <a class="nav-link" href="<?php echo e(route('researchgate')); ?>">ResearchGate</a>
             <a class="nav-link" href="<?php echo e(route('coursera.showButtons')); ?>">Certifications</a>
-             <a class="nav-link" href="<?php echo e(route('statement-of-purpose')); ?>">Statement of Purpose</a>
+            <a class="nav-link" href="<?php echo e(route('statement-of-purpose')); ?>">Statement of Purpose</a>
             <a class="nav-link" href="<?php echo e(route('Calculation')); ?>">Calculation</a>
             <a class="nav-link" href="<?php echo e(route('resume')); ?>">Resume</a>
-
-            <form method="POST" action="<?php echo e(route('logout')); ?>" class="ms-3">
+            <form method="POST" action="<?php echo e(route('logout')); ?>" class="ms-2 d-inline">
                 <?php echo csrf_field(); ?>
                 <button type="submit" class="btn btn-danger">Logout</button>
             </form>
@@ -143,25 +122,19 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="content">
-            <!-- Profile Image -->
-            <div>
-                <img src="<?php echo e(asset('images/your-image.jpg')); ?>" alt="Asim Irfan" class="profile-image">
-            </div>
-
-            <!-- About Me Section -->
-            <div class="about-section">
-                <h2>About Me</h2>
-                <p>
-                    Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies. 
-                    I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills, 
-                    I have experience in research and leadership, having published research papers and led multiple teams to success.
-                </p>
-            </div>
+    <div class="main-content">
+        <div>
+            <img src="<?php echo e(asset('images/your-image.jpg')); ?>" alt="Asim Irfan" class="profile-image">
+        </div>
+        <div class="about-section">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my portfolio! I am a passionate web developer with expertise in Laravel, PHP, and modern web technologies.
+                I enjoy building clean, efficient, and visually appealing applications. In addition to my technical skills,
+                I have experience in research and leadership, having published research papers and led multiple teams to success.
+            </p>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

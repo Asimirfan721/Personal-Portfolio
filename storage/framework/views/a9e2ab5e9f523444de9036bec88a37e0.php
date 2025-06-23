@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <style>
     body {
         background: #f4f6f8;
@@ -106,15 +106,15 @@
 <div class="category-container">
     <div class="category-header">
         <h2>Add New Category</h2>
-        <a href="{{ url('/home') }}" class="btn-back">Home</a>
+        <a href="<?php echo e(url('/home')); ?>" class="btn-back">Home</a>
     </div>
     
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    <?php if(session('success')): ?>
+        <div class="alert alert-success"><?php echo e(session('success')); ?></div>
+    <?php endif; ?>
 
-    <form method="POST" action="{{ route('category.store') }}">
-        @csrf
+    <form method="POST" action="<?php echo e(route('category.store')); ?>">
+        <?php echo csrf_field(); ?>
         <label for="name" class="form-label">Category Name</label>
         <input type="text" name="name" id="name" placeholder="Enter category name" class="form-control" required>
         <button type="submit" class="btn btn-primary">Add Category</button>
@@ -124,9 +124,11 @@
 
     <h4 style="color:#4a90e2; font-weight:600;">All Categories</h4>
     <ul class="category-list">
-        @foreach($categories as $cat)
-            <li>{{ $cat->name }}</li>
-        @endforeach
+        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li><?php echo e($cat->name); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Taha Ahmed\OneDrive\Desktop\coding\laravel\Personal-Portfolio\resources\views/category/index.blade.php ENDPATH**/ ?>

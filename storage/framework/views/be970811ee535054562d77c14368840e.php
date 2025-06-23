@@ -134,58 +134,75 @@
         <h1>Statement of Purpose</h1>
 
         <!-- Home Button -->
-        <a href="{{ url('/home') }}" class="btn-home">Home</a>
+        <a href="<?php echo e(url('/home')); ?>" class="btn-home">Home</a>
 
         <!-- Success Message -->
-        @if(session('success'))
+        <?php if(session('success')): ?>
             <div class="alert alert-success text-center">
-                {{ session('success') }}
+                <?php echo e(session('success')); ?>
+
             </div>
-        @endif
+        <?php endif; ?>
 
         <!-- Display Validation Errors -->
-        @if ($errors->any())
+        <?php if($errors->any()): ?>
             <div class="alert alert-danger">
-                @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
+                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <p><?php echo e($error); ?></p>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-        @endif
+        <?php endif; ?>
 
         <!-- SOP Buttons -->
         <div class="sop-buttons">
-            @foreach ($statements as $sop)
-                <a href="{{ route('statement-of-purpose.edit', $sop->id) }}" class="sop-button">{{ $sop->title }}</a>
-            @endforeach
+            <?php $__currentLoopData = $statements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <a href="<?php echo e(route('statement-of-purpose.edit', $sop->id)); ?>" class="sop-button"><?php echo e($sop->title); ?></a>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
         <!-- Create New SOP Button -->
-        <a href="{{ route('statement-of-purpose.create') }}" class="btn btn-primary w-100 mt-2">Create New SOP</a>
+        <a href="<?php echo e(route('statement-of-purpose.create')); ?>" class="btn btn-primary w-100 mt-2">Create New SOP</a>
 
-        <!-- SOP Form (Only show when editing or creating) -->
-        @if(isset($sop))
-            <form method="POST" action="{{ route('statement-of-purpose.update', $sop->id) }}" class="mt-4">
-                @csrf
+        <!-- SOP Create Form -->
+        <?php if(isset($create)): ?>
+            <form method="POST" action="<?php echo e(route('statement-of-purpose.store')); ?>" class="mt-4">
+                <?php echo csrf_field(); ?>
                 <div class="mb-3">
                     <label class="form-label">Title</label>
-                    <input type="text" name="title" class="form-control" value="{{ $sop->title }}" required>
+                    <input type="text" name="title" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Your Statement of Purpose</label>
-                    <textarea name="content" class="form-control" rows="10" placeholder="Write your statement here...">{{ $sop->content }}</textarea>
+                    <textarea name="content" class="form-control" rows="10" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Create SOP</button>
+            </form>
+        <?php endif; ?>
+
+        <!-- SOP Edit Form -->
+        <?php if(isset($edit)): ?>
+            <form method="POST" action="<?php echo e(route('statement-of-purpose.update', $edit->id)); ?>" class="mt-4">
+                <?php echo csrf_field(); ?>
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo e($edit->title); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Your Statement of Purpose</label>
+                    <textarea name="content" class="form-control" rows="10" required><?php echo e($edit->content); ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Update SOP</button>
             </form>
 
-            <!-- Delete Button -->
-            <form method="POST" action="{{ route('statement-of-purpose.destroy', $sop->id) }}" class="mt-2">
-                @csrf
-                @method('DELETE')
+            <form method="POST" action="<?php echo e(route('statement-of-purpose.destroy', $edit->id)); ?>" class="mt-2">
+                <?php echo csrf_field(); ?>
+                <?php echo method_field('DELETE'); ?>
                 <button type="submit" class="btn btn-danger w-100">Delete SOP</button>
             </form>
-        @endif
+        <?php endif; ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php /**PATH C:\Users\Taha Ahmed\OneDrive\Desktop\coding\laravel\Personal-Portfolio\resources\views/statement-of-purpos.blade.php ENDPATH**/ ?>
