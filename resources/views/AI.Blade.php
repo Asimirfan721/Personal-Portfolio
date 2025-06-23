@@ -118,6 +118,10 @@
     <div class="header">
         <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Category</a>
     </div>
+    <div class="text-center my-4">
+    <a href="{{ url('/categories') }}" class="btn btn-success btn-lg">Add Category</a>
+</div>
+
 
     <!-- Messages -->
     @if(session('success'))

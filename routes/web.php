@@ -13,7 +13,7 @@ use App\Http\Controllers\StatementOfPurposeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ImageController;
-
+use App\Http\Controllers\CategoryController;
 // ------------------------
 // Authentication Routes
 // ------------------------
@@ -126,3 +126,6 @@ Route::get('/coursera/category/{category}', [CourseraController::class, 'showCat
  Route::post('/upload/{category}', [ImageController::class, 'upload'])->name('coursera.upload');
 Route::get('/upload2', [ImageController::class, 'uploadForm'])->name('upload.form');
 Route::post('/upload3', [ImageController::class, 'uploadImage'])->name('image.upload');
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');

@@ -25,13 +25,14 @@
             </div>
             <button type="submit" class="btn btn-success">Upload</button>
                  <div>
-                <label for="category">Select Category:</label>
-                <select name="category" required>
-                    <option value="ai">AI</option>
-                    <option value="cs">CS</option>
-                    <option value="certifications">Certifications</option>
-                </select>
-            </div>
+    <label for="category">Select Category:</label>
+    <select name="category_id" required>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+</div>
+
         </form>
               
         @if (session('success'))

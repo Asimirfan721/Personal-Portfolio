@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Upload;
+use App\Models\Category;
 
 class CourseraController extends Controller
 {
@@ -17,7 +18,7 @@ class CourseraController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'file' => 'required|file|mimes:jpg,png,pdf,docx|max:2048',
-            'category' => 'required|string|in:AI,CS,General',
+            'category_id' => 'required|string|in:AI,CS,General',
         ]);
 
         if ($request->hasFile('file')) {
@@ -27,7 +28,7 @@ class CourseraController extends Controller
             $upload = new Upload();
             $upload->description = $request->input('description');
             $upload->image_path = '/storage/uploads/' . $fileName;
-            $upload->category = $request->input('category');
+            $upload->category_id = $request->input('category_id');
             $upload->save();
 
             $category = $request->input('category');
@@ -44,14 +45,15 @@ class CourseraController extends Controller
         return redirect()->back()->with('error', 'File upload failed.');
     }
 
-    public function uploadform()
-    {
-        $uploads = Upload::where('category', 'AI')->get();
-        $category = 'AI';
-        $images = $uploads;
-        return view('AI', compact('uploads', 'category', 'images'));
-    }
+   public function uploadForm()
+{
+    $uploads = Upload::whereHas('category', function ($q) {
+        $q->where('name', 'AI');
+    })->get();
 
+    $categories = Category::all();
+    return view('AI', compact('uploads', 'categories'));
+}
     public function CS()
     {
         $uploads = Upload::where('category', 'CS')->get();
