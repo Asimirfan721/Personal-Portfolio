@@ -10,5 +10,8 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['category', 'file_path', 'description'];
-}
-  //this  is model
+ 
+ public function category()
+{
+    return $this->belongsTo(Category::class, 'category_id');
+}}

@@ -166,7 +166,7 @@
         </div>
     @endif
 </div>
-
+{{-- 
 @extends('layouts.app')
 
 @section('content')
@@ -189,4 +189,4 @@
         <p>No images found for this category.</p>
     @endif
 </div>
-@endsection
+@endsection --}}
