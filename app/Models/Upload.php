@@ -11,7 +11,7 @@ class Upload extends Model
     use HasFactory;
     
 // this is uploads
-    protected $fillable = ['image_path', 'description', 'category'];
+    protected $fillable = ['image_path', 'description', 'category_id'];
  public function category()
 {
     return $this->belongsTo(Category::class);

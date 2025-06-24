@@ -23,6 +23,6 @@ class CategoryController extends Controller
             'name' => ucfirst(strtolower($request->name)),
         ]);
 
-        return redirect()->back()->with('success', 'Category added successfully!');
+        return redirect()->route('category.index')->with('success', 'Category added successfully!');
     }
 }
