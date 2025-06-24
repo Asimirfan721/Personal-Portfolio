@@ -162,7 +162,7 @@
     <div class="header">
         <a href="{{ url('/home') }}" class="btn-home">Home</a>
         <a href="{{ route('coursera.showButtons') }}" class="btn-Category">Categories</a>
-        <a href="{{ url('/categories') }}" class="btn-add-category">Add Category</a>
+        <a href="{{ url('/categories') }}" class="btn-add-category">Add C ategory</a>
     </div>
 
     <div class="section-title">Upload a File</div>
