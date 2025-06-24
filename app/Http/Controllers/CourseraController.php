@@ -21,7 +21,7 @@ class CourseraController extends Controller
     public function upload(Request $request)
     {
 
-     
+    
         $request->validate([
             'description' => 'required|string|max:255',
             'file' => 'required|file|mimes:jpg,jpeg,png,pdf,docx|max:2048',

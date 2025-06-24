@@ -126,7 +126,7 @@ Route::get('/upload2', [ImageController::class, 'uploadForm'])->name('upload.for
 Route::post('/upload3', [ImageController::class, 'uploadImage'])->name('image.upload');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
-Route::post('/categories2', [CategoryController::class, 'store'])->name('category.store');
+Route::post('/categories1', [CategoryController::class, 'store'])->name('category.store');
 
 Route::get('/category/{id}', [CourseraController::class, 'showCategory'])->name('coursera.showCategory');
 
