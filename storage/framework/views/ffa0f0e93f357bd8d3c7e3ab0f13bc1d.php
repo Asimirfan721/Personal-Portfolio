@@ -204,7 +204,7 @@
     </form>
 
     <?php if(isset($uploads) && count($uploads) > 0): ?>
-        <div class="section-title" style="margin-top: 30px; color: #4a90e2;">Uploaded Files</div>
+        <div class="section-title" style="margin-top: 30px; color: #e24a4a;">Uploaded Files</div>
         <div class="uploaded-files">
             <?php
                 $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
@@ -218,6 +218,17 @@
                         <a href="<?php echo e(asset('storage/' . $upload->image_path)); ?>" target="_blank">View File</a>
                     <?php endif; ?>
                     <p><?php echo e($upload->description); ?></p>
+                   <?php if($upload->category): ?>
+    <p style="color:#4a90e2; font-size:0.98em; margin-top:2px;">
+        Category: <?php echo e($upload->category->name); ?>
+
+    </p>
+<?php else: ?>
+    <p style="color:gray; font-size:0.95em; margin-top:2px;">
+        Category: Not Assigned
+    </p>
+<?php endif; ?>
+
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>

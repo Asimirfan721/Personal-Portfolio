@@ -80,8 +80,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
- 
 // ------------------------
 // Statement of Purpose Routes (Protected with Middleware)
 // ------------------------
@@ -129,3 +127,12 @@ Route::post('/upload3', [ImageController::class, 'uploadImage'])->name('image.up
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+
+Route::get('/category/{id}', [CourseraController::class, 'showCategory'])->name('coursera.showCategory');
+
+
+
+Route::get('/upload-form', [CourseraController::class, 'uploadform'])->name('coursera.uploadform');
+Route::post('/upload', [CourseraController::class, 'upload'])->name('upload');
+Route::get('/categories', [CourseraController::class, 'showButtons'])->name('coursera.showButtons');
+Route::get('/category/{id}', [CourseraController::class, 'showCategory'])->name('coursera.showCategory');

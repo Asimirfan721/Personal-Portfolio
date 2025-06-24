@@ -12,8 +12,9 @@ class Upload extends Model
     
 // this is uploads
     protected $fillable = ['image_path', 'description', 'category'];
-    public function category()
+ public function category()
 {
     return $this->belongsTo(Category::class);
 }
+
 }

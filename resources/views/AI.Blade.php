@@ -202,7 +202,7 @@
     </form>
 
     @if(isset($uploads) && count($uploads) > 0)
-        <div class="section-title" style="margin-top: 30px; color: #4a90e2;">Uploaded Files</div>
+        <div class="section-title" style="margin-top: 30px; color: #e24a4a;">Uploaded Files</div>
         <div class="uploaded-files">
             @php
                 $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
@@ -216,6 +216,16 @@
                         <a href="{{ asset('storage/' . $upload->image_path) }}" target="_blank">View File</a>
                     @endif
                     <p>{{ $upload->description }}</p>
+                   @if ($upload->category)
+    <p style="color:#4a90e2; font-size:0.98em; margin-top:2px;">
+        Category: {{ $upload->category->name }}
+    </p>
+@else
+    <p style="color:gray; font-size:0.95em; margin-top:2px;">
+        Category: Not Assigned
+    </p>
+@endif
+
                 </div>
             @endforeach
         </div>
