@@ -18,7 +18,7 @@
             border-radius: 18px;
             box-shadow: 0 4px 24px rgba(60,72,88,0.12), 0 1.5px 4px rgba(60,72,88,0.07);
             background: #fff;
-            max-width: 410px;
+            max-width: 430px;
             margin: 0 auto;
             padding: 0;
             overflow: hidden;
@@ -150,7 +150,7 @@
             </form>
             <div class="register-link">
                 <span>Don't have an account?</span>
-                <a href="<?php echo e(route('register')); ?>">Register Yourself</a>
+                <a href="<?php echo e(route('register')); ?>">Register</a>
             </div>
         </div>
     </div>
