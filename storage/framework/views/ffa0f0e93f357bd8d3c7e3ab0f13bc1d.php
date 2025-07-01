@@ -162,7 +162,7 @@
     <div class="header">
         <a href="<?php echo e(url('/home')); ?>" class="btn-home">Home</a>
         <a href="<?php echo e(route('coursera.showButtons')); ?>" class="btn-Category">Categories</a>
-        <a href="<?php echo e(url('/categories')); ?>" class="btn-add-category">Add C ategory</a>
+        <a href="<?php echo e(url('/categories')); ?>" class="btn-add-category">Add Category</a>
     </div>
 
     <div class="section-title">Upload a File</div>
