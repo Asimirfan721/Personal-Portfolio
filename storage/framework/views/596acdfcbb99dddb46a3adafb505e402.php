@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #e9eef3 0%, #f4f6f8 100%);
+            background: linear-gradient(120deg, #e9eef3 0%, #74b9ff 100%);
             color: #222;
             font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -16,7 +16,7 @@
         }
         .navbar {
             background: #fff;
-            border-bottom: 2px solid #4a90e2;
+            border-bottom: 2px solid #0984e3;
             padding: 12px 28px;
             box-shadow: 0 2px 12px rgba(60,72,88,0.07);
             position: sticky;
@@ -24,7 +24,7 @@
             z-index: 10;
         }
         .navbar .navbar-brand {
-            color: #4a90e2;
+            color: #0984e3;
             font-weight: bold;
             font-size: 1.6em;
             letter-spacing: 1px;
@@ -40,7 +40,7 @@
         }
         .navbar .nav-link:hover, .navbar .nav-link.active {
             background: #e9eef3;
-            color: #4a90e2;
+            color: #0984e3;
         }
         .navbar .btn-danger {
             padding: 7px 18px;
@@ -71,18 +71,21 @@
             border-radius: 14px;
             box-shadow: 0 5px 15px rgba(60,72,88,0.10);
             margin-bottom: 10px;
+            border: 3px solid #74b9ff;
+            background: #e9eef3;
         }
         .about-section {
             flex: 1;
         }
         .about-section h2 {
             font-size: 2rem;
-            color: #4a90e2;
+            color: #0984e3;
             font-weight: 700;
             margin-bottom: 14px;
             border-bottom: 2px solid #e9eef3;
             display: inline-block;
             padding-bottom: 4px;
+            letter-spacing: 1px;
         }
         .about-section p {
             font-size: 1.13rem;
